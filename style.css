@@ -1,0 +1,284 @@
+/* Presets */
+:root[data-theme="light"] {
+	--text: #0a2414;
+	--background: #f7fdf9;
+	--primary: #55aaa0;
+	--secondary: #d0dee7;
+	--accent: #4f7e9c;
+	--selected: #aa555f;
+}
+
+:root[data-theme="dark"] {
+	--text: #dbf5e5;
+	--background: #020804;
+	--primary: #55aaa0;
+	--secondary: #18262f;
+	--accent: #6393b0;
+	--selected: #aa555f;
+}
+
+* {
+	color: var(--text);
+	background-color: var(--background);
+	font-family: 'PT Sans', sans-serif;
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+::selection {
+	background-color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Nunito', sans-serif;
+}
+
+button,
+a {
+	cursor: pointer;
+}
+
+a {
+	color: var(--accent);
+}
+
+html,
+body {
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+/* Color Mode */
+#colorMode {
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	background-color: var(--secondary);
+	overflow: hidden;
+	border: 2px solid var(--text);
+	border-radius: 5px;
+	bottom: 1rem;
+	left: 1rem;
+}
+
+#colorMode svg {
+	position: absolute;
+	width: 70%;
+	height: 70%;
+	left: 15%;
+	top: 15%;
+	fill: var(--text);
+	background-color: transparent;
+	transition: transform 0.3s ease-in-out;
+}
+
+:root[data-theme="light"] #colorMode #moonIcon {
+	transform: translateY(3rem);
+}
+
+:root[data-theme="dark"] #colorMode #sunIcon {
+	transform: translateY(3rem);
+}
+
+#colorMode:hover {
+	transform: scale(1.1);
+}
+
+#colorMode:focus-visible {
+	outline: 3px solid var(--accent);
+	outline-offset: 3px;
+}
+
+/* Hero */
+
+header {
+	position: fixed;
+	width: 100%;
+	height: fit-content;
+	background-color: var(--primary);
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+
+header h2 {
+	margin: 0;
+	background-color: transparent;
+	flex: 1 1 0px;
+	transition: font-size 0.3s ease-in-out;
+}
+
+header[data-state="expanded"] h2 {
+	font-size: 6vmin;
+}
+
+header[data-state="collapsed"] h2 {
+	font-size: max(3vmin, 0.75rem);
+}
+
+header nav {
+	background-color: transparent;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header[data-state="expanded"] nav {
+	height: 7vmin;
+	width: 7vmin;
+}
+
+header[data-state="collapsed"] nav {
+	height: 6vmin;
+	width: 6vmin;
+}
+
+nav ul {
+	position: absolute;
+	padding: 0.5rem;
+	margin: 0;
+	right: 0;
+	top: calc(100% - 1.5px);
+	background-color: var(--secondary);
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	flex-direction: column;
+	gap: 0.25rem;
+	border: 2px solid var(--text);
+	border-radius: 10px 0px 10px 10px;
+	width: 7rem;
+	transform-origin: top right;
+	transition: transform 0.3s ease-in-out;
+}
+
+nav[data-state="collapsed"] ul {
+	transform: scale(0);
+}
+
+nav[data-state="expanded"] ul {
+	transform: scale(1);
+}
+
+nav ul::before {
+	content: '';
+	position: absolute;
+	background-color: var(--secondary);
+	height: 0.3rem;
+	top: -0.15rem;
+	right: 0;
+}
+
+header[data-state="expanded"] nav ul::before {
+	width: calc(7vmin - 3px);
+}
+
+header[data-state="collapsed"] nav ul::before {
+	width: calc(6vmin - 3.25px);
+}
+
+nav ul a {
+	background-color: transparent;
+	text-decoration: none;
+	text-align: right;
+	color: var(--text);
+	white-space: nowrap;
+	transition: color 0s;
+	line-height: 1.25rem
+}
+
+nav ul a:hover {
+	color: var(--selected);
+	font-weight: bold;
+	font-size: larger;
+}
+
+nav ul a:focus-visible {
+	outline: 2px solid var(--selected);
+	outline-offset: 2px;
+	color: var(--selected);
+	font-weight: bold;
+	font-size: larger;
+}
+
+nav button {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: var(--secondary);
+	border: 2px solid var(--text);
+	padding: 0;
+	transition: border-radius 0.3s ease-in-out;
+	gap: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+nav button:hover span {
+	background-color: var(--selected);
+}
+
+nav button:focus-visible {
+	outline: 3px solid var(--background);
+	outline-offset: 3px;
+	background-color: var(--selected);
+}
+
+nav[data-state="collapsed"] button {
+	border-radius: 10px;
+}
+
+nav[data-state="expanded"] button {
+	border-radius: 10px 10px 0px 0px;
+}
+
+nav button span {
+	position: absolute;
+	display: block;
+	background-color: var(--text);
+	height: 15%;
+	width: 80%;
+	border-radius: 5px;
+	transition: top 0.3s ease-in-out, bottom 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+nav[data-state="collapsed"] button span:nth-child(1) {
+	top: 20%;
+}
+
+nav[data-state="expanded"] button span:nth-child(2) {
+	width: 80%;
+}
+
+nav[data-state="collapsed"] button span:nth-child(3) {
+	bottom: 20%;
+}
+
+nav[data-state="expanded"] button span:nth-child(1) {
+	top: 42.5%;
+	transform: rotate(45deg);
+}
+
+nav[data-state="expanded"] button span:nth-child(2) {
+	width: 0%;
+}
+
+nav[data-state="expanded"] button span:nth-child(3) {
+	bottom: 42.5%;
+	transform: rotate(-45deg);
+}
+
+section {
+	height: 1000vh
+}
