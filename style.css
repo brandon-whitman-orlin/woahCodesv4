@@ -108,6 +108,7 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	gap: 1rem;
+    z-index: 2;
 }
 
 header h2 {
@@ -170,23 +171,6 @@ nav[data-state="expanded"] ul {
 	transform: scale(1);
 }
 
-nav ul::before {
-	content: '';
-	position: absolute;
-	background-color: var(--secondary);
-	height: 0.3rem;
-	top: -0.15rem;
-	right: 0;
-}
-
-header[data-state="expanded"] nav ul::before {
-	width: calc(7vmin - 3px);
-}
-
-header[data-state="collapsed"] nav ul::before {
-	width: calc(6vmin - 3.25px);
-}
-
 nav ul a {
 	background-color: transparent;
 	text-decoration: none;
@@ -225,10 +209,6 @@ nav button {
 	align-items: center;
 }
 
-nav button:hover span {
-	background-color: var(--selected);
-}
-
 nav button:focus-visible {
 	outline: 3px solid var(--background);
 	outline-offset: 3px;
@@ -241,6 +221,10 @@ nav[data-state="collapsed"] button {
 
 nav[data-state="expanded"] button {
 	border-radius: 10px 10px 0px 0px;
+}
+
+nav button:hover span {
+	background-color: var(--selected);
 }
 
 nav button span {
@@ -277,6 +261,25 @@ nav[data-state="expanded"] button span:nth-child(2) {
 nav[data-state="expanded"] button span:nth-child(3) {
 	bottom: 42.5%;
 	transform: rotate(-45deg);
+}
+
+nav button::before {
+	content: '';
+	position: absolute;
+	background-color: var(--secondary);
+	height: 0.3rem;
+	bottom: -0.15rem;
+    width: 100%;
+    z-index: 2;
+    transition: opacity 0.3s ease-in-out;
+}
+
+nav[data-state="expanded"] button::before {
+    opacity: 1;
+}
+
+nav[data-state="collapsed"] button::before {
+    opacity: 0;
 }
 
 section {
