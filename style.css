@@ -279,8 +279,8 @@ nav button::before {
 	content: '';
 	position: absolute;
 	background-color: var(--secondary);
-	height: 0.3rem;
-	bottom: -0.15rem;
+	height: 0.5rem;
+	bottom: -0.35rem;
     width: 100%;
     z-index: 2;
     transition: opacity 0.3s ease-in-out;
