@@ -57,9 +57,9 @@ body {
 
 /* Color Mode */
 #colorMode {
-	position: absolute;
-	width: 2rem;
-	height: 2rem;
+	position: fixed;
+	width: 1.5rem;
+	height: 1.5rem;
 	background-color: var(--secondary);
 	overflow: hidden;
 	border: 2px solid var(--text);
@@ -96,7 +96,7 @@ body {
 	outline-offset: 3px;
 }
 
-/* Hero */
+/* Header */
 
 header {
 	position: fixed;
@@ -126,6 +126,24 @@ header[data-state="collapsed"] h2 {
 	font-size: max(3vmin, 0.75rem);
 }
 
+header h2 a {
+	text-decoration: none;
+	background-color: transparent;
+	color: var(--text);
+	font: inherit;
+}
+
+header h2 a:hover {
+	color: var(--secondary);
+}
+
+header h2 a:focus-visible {
+	color: var(--secondary);
+	outline: 2px solid var(--secondary);
+	outline-offset: 0.5rem;
+	border-radius: 5px;
+}
+
 header nav {
 	background-color: transparent;
 	position: relative;
@@ -135,16 +153,6 @@ header nav {
 	width: max(6vmin, 1.2rem);
 	height: max(6vmin, 1.2rem);
 }
-
-/* header[data-state="expanded"] nav {
-	height: 7vmin;
-	width: 7vmin;
-}
-
-header[data-state="collapsed"] nav {
-	height: 6vmin;
-	width: 6vmin;
-} */
 
 nav ul {
 	position: absolute;
@@ -163,6 +171,7 @@ nav ul {
 	width: 7rem;
 	transform-origin: top right;
 	transition: transform 0.3s ease-in-out;
+	list-style: none;
 }
 
 nav[data-state="collapsed"] ul {
@@ -173,6 +182,10 @@ nav[data-state="expanded"] ul {
 	transform: scale(1);
 }
 
+nav ul li {
+	background-color: transparent;
+}
+
 nav ul a {
 	background-color: transparent;
 	text-decoration: none;
@@ -181,6 +194,14 @@ nav ul a {
 	white-space: nowrap;
 	transition: color 0s;
 	line-height: 1.25rem
+}
+
+nav[data-state="collapsed"] ul a {
+	visibility: hidden;
+}
+
+nav[data-state="expanded"] ul a {
+	visibility: visible;
 }
 
 nav ul a:hover {
@@ -210,12 +231,21 @@ nav button {
 	align-items: center;
 }
 
+nav button svg path{
+	fill: var(--text);
+}
+
 nav button:focus-visible {
 	outline: 3px solid var(--background);
 	outline-offset: 3px;
 }
 
 nav button:focus-visible svg path{
+	fill: var(--selected);
+}
+
+
+nav button:hover svg path {
 	fill: var(--selected);
 }
 
@@ -227,9 +257,6 @@ nav[data-state="expanded"] button {
 	border-radius: 10px 10px 0px 0px;
 }
 
-nav button:hover svg path {
-	fill: var(--selected);
-}
 
 nav button svg {
 	position: absolute;
@@ -267,6 +294,32 @@ nav[data-state="collapsed"] button::before {
     opacity: 0;
 }
 
+/* Main */
+
+main {
+	position: relative;
+	padding-bottom: 1rem;
+	padding-inline: 2rem;
+}
+
+header[data-state="expanded"] ~ main {
+	padding-top: calc(7vmin + 3.2rem);
+}
+
+header[data-state="collapsed"] ~ main {
+	padding-top: calc(6vmin + 3.2rem);
+}
+
+/* Sections */
+
 section {
-	height: 1000vh
+	position: relative;
+	width: 100%;
+	height: fit-content;
+	box-sizing: border-box;
+	border: 2px solid orange;
+}
+
+body {
+	height: 1000vh;
 }
