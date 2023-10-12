@@ -21,7 +21,7 @@
 	color: var(--text);
 	font-family: 'PT Sans', sans-serif;
 	scroll-behavior: smooth;
-	scroll-padding-top: 10rem;
+	scroll-padding-top: 7.5rem;
 	box-sizing: border-box;
 	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
@@ -285,7 +285,7 @@ nav[data-state="collapsed"] button svg:nth-child(1) {
 }
 
 nav[data-state="expanded"] button svg:nth-child(2) {
-	transform: scale(0.9) rotate(180deg);
+	transform: scale(0.9) rotate(-180deg);
 }
 
 nav button::before {
@@ -333,30 +333,31 @@ section {
 	box-sizing: border-box;
 }
 
-#aboutSection {
+#introSection {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	position: relative;
 }
 
 @media (min-width: 872px) {
-	#aboutSection {
+	#introSection {
 		flex-direction: row;
 	}
 
-	#aboutSection .textContent {
+	#introSection .textContent {
 		padding: 5rem;
 		width: 50%;
 	}
 }
 
-#aboutSection .bioCard {
+#introSection .bioCard {
 	position: relative;
 	width: fit-content;
 }
 
-#aboutSection .bioCard .card {
+#introSection .bioCard .card {
 	background-color: var(--secondary);
 	position: relative;
 	width: fit-content;
@@ -370,7 +371,7 @@ section {
 	flex-direction: column;
 }
 
-#aboutSection .bioCard .card .headshot {
+#introSection .bioCard .card .headshot {
 	border-radius: 100%;
 	outline: 3px solid var(--text);
 	outline-offset: -1px;
@@ -386,7 +387,7 @@ section {
 	background-attachment: fixed;
 }
 
-#aboutSection .bioCard .card .headshot img {
+#introSection .bioCard .card .headshot img {
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -395,7 +396,7 @@ section {
 	background-color: transparent;
 }
 
-#aboutSection .bioCard h3 {
+#introSection .bioCard h3 {
 	position: relative;
 	margin: 0;
 	background-color: transparent;
@@ -404,7 +405,7 @@ section {
 	text-align: center;
 }
 
-#aboutSection .bioCard p {
+#introSection .bioCard p {
 	position: relative;
 	margin: 0;
 	background-color: transparent;
@@ -412,7 +413,7 @@ section {
 	text-align: center;
 }
 
-#aboutSection .bioCard .quickContacts {
+#introSection .bioCard .quickContacts {
 	position: relative;
 	background-color: transparent;
 	display: flex;
@@ -420,7 +421,7 @@ section {
 	align-items: center;
 }
 
-#aboutSection .bioCard .quickContacts a {
+#introSection .bioCard .quickContacts a {
 	position: relative;
 	border-radius: 5px;
 	width: 1.5rem;
@@ -430,25 +431,25 @@ section {
 	overflow: hidden;
 }
 
-#aboutSection .bioCard .quickContacts a:nth-child(1) {
+#introSection .bioCard .quickContacts a:nth-child(1) {
 	background-color: rgb(26, 107, 196);
 }
 
-#aboutSection .bioCard .quickContacts a:nth-child(2) {
+#introSection .bioCard .quickContacts a:nth-child(2) {
 	background-color: rgb(119, 141, 219);
 }
 
-#aboutSection .bioCard .quickContacts a:nth-child(3) {
+#introSection .bioCard .quickContacts a:nth-child(3) {
 	background-color: rgb(255, 65, 48);
 }
 
-#aboutSection .bioCard .quickContacts a {
+#introSection .bioCard .quickContacts a {
 	position: relative;
 	background-color: transparent;
 	display: block;
 }
 
-#aboutSection .bioCard .quickContacts a svg {
+#introSection .bioCard .quickContacts a svg {
 	position: relative;
 	background-color: transparent;
 	width: 100%;
@@ -456,11 +457,11 @@ section {
 	transform: scale(0.7);
 }
 
-#aboutSection .bioCard .quickContacts a svg path {
+#introSection .bioCard .quickContacts a svg path {
 	fill: rgb(255, 255, 255);
 }
 
-#aboutSection .bioCard a {
+#introSection .bioCard a {
 	position: relative;
 	border-radius: 10px;
 	width: 60%;
@@ -474,35 +475,34 @@ section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 }
 
-#aboutSection .bioCard a:hover {
+#introSection .bioCard a:hover {
 	transform: scale(1.1);
 }
 
-#aboutSection .bioCard a:focus-visible {
+#introSection .bioCard a:focus-visible {
 	transform: scale(1.1);
 	outline: 2px solid var(--selected);
 	outline-offset: 2px;
 }
 
-#aboutSection .textContent a {
+#introSection .textContent a {
 	text-decoration: none;
 	color: var(--accent);
 	font-weight: bold;
 }
 
-#aboutSection .textContent a:hover {
+#introSection .textContent a:hover {
 	color: var(--selected);
 }
 
-#aboutSection .textContent a:focus-visible {
+#introSection .textContent a:focus-visible {
 	color: var(--selected);
 	outline: 2px solid var(--selected);
 }
 
-#aboutSection .textContent h1 {
+#introSection .textContent h1 {
 	position: relative;
 	width: 100%;
 	display: flex;
@@ -512,6 +512,125 @@ section {
 	font-size: max(5vmin, 1.5rem);
 }
 
-body {
-	height: 1000vh;
+#aboutSection {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+#aboutSection .imageScroller {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 25px;
+	overflow: hidden;
+	position: relative;
+	border: 2px solid var(--text);
+}
+
+.imageScroller img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.imageScroller .scrollerDesc {
+	position: relative;
+	background-color: var(--secondary);
+	width: 100%;
+	padding: 2rem;
+	padding-top: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.scrollerDesc::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	bottom: 100%;
+	background: linear-gradient(180deg, rgba(255,252,251,0) 0%, var(--secondary) 100%);
+}
+
+.imageScroller .scrollerDesc h2 {
+	margin: 0;
+}
+
+.imageScroller .scrollerDesc p {
+	margin: 0;
+}
+
+
+.scrollerDesc .scrollerControls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	gap: 0.5rem;
+}
+
+.scrollerControls button {
+	background-color: transparent;
+	border: none;
+	width: 1rem;
+	height: 1rem;
+	position: relative;
+	transition: transform 0.3s ease-in-out;
+	border-radius: 100%;
+}
+
+.scrollerControls button:hover {
+	transform: scale(1.5);
+}
+
+.scrollerControls button:hover svg {
+	fill: var(--selected);
+}
+
+.scrollerControls button:focus-visible {
+	transform: scale(1.5);
+	outline: 2px solid var(--background);
+}
+
+.scrollerControls button:focus-visible svg {
+	fill: var(--selected);
+}
+
+.scrollerControls button svg {
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	left: 0;
+	top: 0;
+}
+
+.scrollerControls .scrollerLeftArrow svg {
+	transform: scale(1.5) rotate(90deg);
+}
+
+.scrollerControls .scrollerRightArrow svg {
+	transform: scale(1.5) rotate(-90deg);
+}
+
+.scrollerControls .scrollerIndex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.scrollerIndex .scrollerIndexItem {
+	position: relative;
+	width: 0.75rem;
+	height: 0.75rem;
+	border-radius: 100%;
+	background-color: rgba(0, 0, 0, 0.25);
+	border: 2px solid var(--text);
 }
