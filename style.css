@@ -465,7 +465,6 @@ section {
 	text-decoration: none;
 	color: inherit;
 	font-weight: bold;
-	pointer-events: none;
 }
 
 #aboutSection .bioCard button:hover {
