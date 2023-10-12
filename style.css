@@ -396,7 +396,7 @@ section {
 	align-items: center;
 }
 
-#aboutSection .bioCard .quickContacts button {
+#aboutSection .bioCard .quickContacts a {
 	position: relative;
 	border-radius: 5px;
 	width: 1.5rem;
@@ -406,51 +406,37 @@ section {
 	overflow: hidden;
 }
 
-#aboutSection .bioCard .quickContacts button:nth-child(1) {
+#aboutSection .bioCard .quickContacts a:nth-child(1) {
 	background-color: rgb(26, 107, 196);
 }
 
-#aboutSection .bioCard .quickContacts button:nth-child(1) svg {
-	transform: scale(1.3);
-}
-
-
-#aboutSection .bioCard .quickContacts button:nth-child(2) {
+#aboutSection .bioCard .quickContacts a:nth-child(2) {
 	background-color: rgb(119, 141, 219);
 }
 
-#aboutSection .bioCard .quickContacts button:nth-child(2) svg {
-	transform: scale(1.5);
-}
-
-#aboutSection .bioCard .quickContacts button:nth-child(3) {
+#aboutSection .bioCard .quickContacts a:nth-child(3) {
 	background-color: rgb(255, 65, 48);
 }
 
-#aboutSection .bioCard .quickContacts button:nth-child(3) svg {
-	transform: scale(1.6);
-}
-
-#aboutSection .bioCard .quickContacts button a {
+#aboutSection .bioCard .quickContacts a {
 	position: relative;
 	background-color: transparent;
 	display: block;
-	width: 100%;
-	height: 100%;
 }
 
-#aboutSection .bioCard .quickContacts button a svg {
+#aboutSection .bioCard .quickContacts a svg {
 	position: relative;
 	background-color: transparent;
 	width: 100%;
 	height: 100%;
+	transform: scale(0.7);
 }
 
-#aboutSection .bioCard .quickContacts button a svg path {
+#aboutSection .bioCard .quickContacts a svg path {
 	fill: rgb(255, 255, 255);
 }
 
-#aboutSection .bioCard button {
+#aboutSection .bioCard a {
 	position: relative;
 	border-radius: 10px;
 	width: 60%;
@@ -458,20 +444,20 @@ section {
 	margin: 0.5rem;
 	border: 2px solid var(--text);
 	background-color: var(--primary);
-}
-
-#aboutSection .bioCard button a {
-	background-color: transparent;
 	text-decoration: none;
 	color: inherit;
 	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 }
 
-#aboutSection .bioCard button:hover {
+#aboutSection .bioCard a:hover {
 	transform: scale(1.1);
 }
 
-#aboutSection .bioCard button:focus-visible {
+#aboutSection .bioCard a:focus-visible {
 	transform: scale(1.1);
 	outline: 2px solid var(--selected);
 	outline-offset: 2px;
