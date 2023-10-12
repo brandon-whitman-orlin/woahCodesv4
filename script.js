@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-	// Handle all scroll-based functionality
+	// Collapse header when page is scrolled
 	window.addEventListener("scroll", collapseHeader);
+
+	// Calculate current scrollY to show progress bar
+	window.addEventListener("scroll", progressBar);
 
 	// Handle collapsing nav
 	var nav = document.querySelector("nav");
@@ -49,4 +52,14 @@ function navMenu(nav) {
 	} else {
 		nav.setAttribute('data-state', "collapsed");
 	}
+}
+
+function progressBar() {
+	const header = document.querySelector(".progressBar");
+	const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+	const scrollY = window.scrollY;
+
+	const scrollProgress = (scrollY / scrollableHeight) * 100;
+
+	header.style.setProperty("--scrollAmount", `${scrollProgress}%`);
 }
