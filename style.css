@@ -122,6 +122,7 @@ header .progressBar {
 	bottom: 0;
 	left: 0;
 	border-radius: 0px 15px 15px 0px;
+	z-index: 2;
 }
 
 header h2 {
@@ -165,6 +166,7 @@ header nav {
 	align-items: center;
 	width: max(6vmin, 1.2rem);
 	height: max(6vmin, 1.2rem);
+	z-index: 3;
 }
 
 nav ul {
@@ -487,22 +489,34 @@ section {
 	outline-offset: 2px;
 }
 
-#introSection .textContent a {
+.textContent h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary);
+    font-size: max(4vmin, 1.25rem);
+	padding: 0.5rem;
+	border-radius: 15px;
+    width: fit-content;
+    margin: 1rem auto;
+}
+
+.textContent a {
 	text-decoration: none;
 	color: var(--accent);
 	font-weight: bold;
 }
 
-#introSection .textContent a:hover {
+.textContent a:hover {
 	color: var(--selected);
 }
 
-#introSection .textContent a:focus-visible {
+.textContent a:focus-visible {
 	color: var(--selected);
 	outline: 2px solid var(--selected);
 }
 
-#introSection .textContent h1 {
+.textContent h1 {
 	position: relative;
 	width: 100%;
 	display: flex;
@@ -517,6 +531,7 @@ section {
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	flex-direction: column;
 }
 
 #aboutSection .imageScroller {
@@ -530,23 +545,38 @@ section {
 	border: 2px solid var(--text);
 }
 
-.imageScroller img {
+.imageScroller .imageList {
 	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+}
+
+.imageList img {
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.imageList img[data-state="active"] {
+	opacity: 1;
+}
+
+.imageList img[data-state="inactive"] {
+	opacity: 0;
 }
 
 .imageScroller .scrollerDesc {
 	position: relative;
 	background-color: var(--secondary);
 	width: 100%;
-	padding: 2rem;
-	padding-top: 0.5rem;
+	padding: 1rem 2rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	gap: 0.5rem;
 }
 
 .scrollerDesc::before {
@@ -555,17 +585,62 @@ section {
 	width: 100%;
 	height: 100%;
 	bottom: 100%;
-	background: linear-gradient(180deg, rgba(255,252,251,0) 0%, var(--secondary) 100%);
+	background: linear-gradient(180deg, rgba(255, 252, 251, 0) 0%, var(--secondary) 100%);
 }
 
-.imageScroller .scrollerDesc h2 {
+.imageScroller .scrollerDesc .titleHolder {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.imageScroller .scrollerDesc .descHolder {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.imageScroller .scrollerDesc .titleHolder h2 {
 	margin: 0;
+	margin-top: 0.25rem;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	grid-row-start: 1;
+	grid-column-start: 1;
+	transition: opacity 0.3s ease-in-out;
 }
 
-.imageScroller .scrollerDesc p {
+.imageScroller .scrollerDesc .titleHolder h2[data-state="active"] {
+	opacity: 1;
+}
+
+.imageScroller .scrollerDesc .titleHolder h2[data-state="inactive"] {
+	opacity: 0;
+}
+
+.imageScroller .scrollerDesc .descHolder p {
 	margin: 0;
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	grid-row-start: 1;
+	grid-column-start: 1;
+	transition: opacity 0.3s ease-in-out;
 }
 
+.imageScroller .scrollerDesc .descHolder p[data-state="active"] {
+	opacity: 1;
+}
+
+.imageScroller .scrollerDesc .descHolder p[data-state="inactive"] {
+	opacity: 0;
+}
 
 .scrollerDesc .scrollerControls {
 	display: flex;
@@ -609,6 +684,7 @@ section {
 	height: 1rem;
 	left: 0;
 	top: 0;
+	fill: var(--text);
 }
 
 .scrollerControls .scrollerLeftArrow svg {
@@ -631,6 +707,17 @@ section {
 	width: 0.75rem;
 	height: 0.75rem;
 	border-radius: 100%;
-	background-color: rgba(0, 0, 0, 0.25);
 	border: 2px solid var(--text);
+	opacity: 0.75;
+	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.scrollerIndex .scrollerIndexItem[data-state="inactive"] {
+	background-color: var(--accent);
+}
+
+.scrollerIndex .scrollerIndexItem[data-state="active"] {
+	background-color: var(--primary);
+	transform: scale(1.1);
+	opacity: 1;
 }

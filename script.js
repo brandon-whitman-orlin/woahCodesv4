@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	presetTheme(storedColorMode);
 	var colorMode = document.getElementById("colorMode");
 	colorMode.addEventListener("click", changeTheme);
+
+	// Set up About image scroller
+	var imageScroller = document.querySelector(".imageScroller");
+	scrollSetup(imageScroller);
 });
 
 function presetTheme(theme) {
@@ -62,4 +66,95 @@ function progressBar() {
 	const scrollProgress = (scrollY / scrollableHeight) * 100;
 
 	header.style.setProperty("--scrollAmount", `${scrollProgress}%`);
+}
+
+function scrollSetup(scroller) {
+	const imageList = scroller.querySelector(".imageList");
+	const imageDesc = scroller.querySelector(".scrollerDesc");
+	const imageControls = imageDesc.querySelector(".scrollerControls");
+	const imageIndicator = imageControls.querySelector(".scrollerIndex");
+	const leftArrow = imageControls.querySelector(".scrollerLeftArrow");
+	const rightArrow = imageControls.querySelector(".scrollerRightArrow");
+	const titleList = imageDesc.querySelector(".titleHolder");
+	const descList = imageDesc.querySelector(".descHolder");
+
+	const imgElements = imageList.querySelectorAll("img");
+
+	imgElements[0].setAttribute("data-state", "active");
+	const newDiv = document.createElement("div");
+	newDiv.className = "scrollerIndexItem";
+	newDiv.setAttribute("data-state", "active");
+	imageIndicator.appendChild(newDiv);
+
+	for (let i = 1; i < imgElements.length; i++) {
+		imgElements[i].setAttribute("data-state", "inactive");
+		const newDiv = document.createElement("div");
+		newDiv.className = "scrollerIndexItem";
+		newDiv.setAttribute("data-state", "inactive");
+		imageIndicator.appendChild(newDiv);
+	}
+
+	const titleElements = titleList.querySelectorAll("h2");
+	const descElements = descList.querySelectorAll("p");
+
+	titleElements[0].setAttribute("data-state", "active");
+	descElements[0].setAttribute("data-state", "active");
+
+	for (let i = 1; i < titleElements.length; i++) {
+		titleElements[i].setAttribute("data-state", "inactive");
+	}
+
+	for (let i = 1; i < descElements.length; i++) {
+		descElements[i].setAttribute("data-state", "inactive");
+	}
+
+	leftArrow.addEventListener("click", function() {
+		const activeImage = imageList.querySelector('[data-state="active"]');
+		const activeIndicator = imageIndicator.querySelector('[data-state="active"]');
+		const activeTitle = titleList.querySelector('[data-state="active"]');
+		const activeDesc = descList.querySelector('[data-state="active"]');
+
+		if (activeImage) {
+			const previousImage = activeImage.previousElementSibling || imgElements[imgElements.length - 1];
+			const previousIndicator = activeIndicator.previousElementSibling || imageIndicator.lastElementChild;
+			const previousTitle = activeTitle.previousElementSibling || titleList.lastElementChild;
+			const previousDesc = activeDesc.previousElementSibling || descList.lastElementChild;
+
+			if (previousImage) {
+				activeImage.setAttribute("data-state", "inactive");
+				previousImage.setAttribute("data-state", "active");
+				activeIndicator.setAttribute("data-state", "inactive");
+				previousIndicator.setAttribute("data-state", "active");
+				activeTitle.setAttribute("data-state", "inactive");
+				previousTitle.setAttribute("data-state", "active");
+				activeDesc.setAttribute("data-state", "inactive");
+				previousDesc.setAttribute("data-state", "active");
+			}
+		}
+	});
+
+	rightArrow.addEventListener("click", function() {
+		const activeImage = imageList.querySelector('[data-state="active"]');
+		const activeIndicator = imageIndicator.querySelector('[data-state="active"]');
+		const activeTitle = titleList.querySelector('[data-state="active"]');
+		const activeDesc = descList.querySelector('[data-state="active"]');
+
+		if (activeImage) {
+			const nextImage = activeImage.nextElementSibling || imgElements[0];
+			const nextIndicator = activeIndicator.nextElementSibling || imageIndicator.firstElementChild;
+			const nextTitle = activeTitle.nextElementSibling || titleList.firstElementChild;
+			const nextDesc = activeDesc.nextElementSibling || descList.firstElementChild;
+
+			if (nextImage) {
+				activeImage.setAttribute("data-state", "inactive");
+				nextImage.setAttribute("data-state", "active");
+				activeIndicator.setAttribute("data-state", "inactive");
+				nextIndicator.setAttribute("data-state", "active");
+				activeTitle.setAttribute("data-state", "inactive");
+				nextTitle.setAttribute("data-state", "active");
+				activeDesc.setAttribute("data-state", "inactive");
+				nextDesc.setAttribute("data-state", "active");
+			}
+		}
+	});
 }
