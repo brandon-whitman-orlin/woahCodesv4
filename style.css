@@ -616,7 +616,7 @@ section {
 .imageScroller .imageCredits {
 	position: absolute;
 	height: fit-content;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: var(--text);
 	z-index: 2;
 	top: 0;
 	width: 100%;
