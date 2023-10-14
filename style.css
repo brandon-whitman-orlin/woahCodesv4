@@ -633,6 +633,9 @@ section {
 	height: 100%;
 	color: var(--background);
 	font-size: max(1vmin, 0.8rem);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .imageScroller .imageCredits a {
