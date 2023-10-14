@@ -591,12 +591,10 @@ section {
 
 	.imageList img[data-state="active"] {
 		opacity: 1;
-		position: relative;
 	}
 	
 	.imageList img[data-state="inactive"] {
 		opacity: 0;
-		position: absolute;
 	}
 
 	.imageScroller .scrollerDesc .descHolder {
