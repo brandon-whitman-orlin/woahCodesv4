@@ -77,6 +77,9 @@ function scrollSetup(scroller) {
 	const rightArrow = imageControls.querySelector(".scrollerRightArrow");
 	const titleList = imageDesc.querySelector(".titleHolder");
 	const descList = imageDesc.querySelector(".descHolder");
+	const imageCredits = imageList.querySelector(".imageCredits");
+	const creditName = imageCredits.querySelector("p");
+	const creditLink = imageCredits.querySelector("a");
 
 	const imgElements = imageList.querySelectorAll("img");
 
@@ -85,6 +88,9 @@ function scrollSetup(scroller) {
 	newDiv.className = "scrollerIndexItem";
 	newDiv.setAttribute("data-state", "active");
 	imageIndicator.appendChild(newDiv);
+
+	creditName.innerText = imageList.querySelector('[data-state="active"]').getAttribute("data-credit");
+	creditLink.href = imageList.querySelector('[data-state="active"]').getAttribute("data-link");
 
 	for (let i = 1; i < imgElements.length; i++) {
 		imgElements[i].setAttribute("data-state", "inactive");
@@ -115,12 +121,16 @@ function scrollSetup(scroller) {
 		const activeDesc = descList.querySelector('[data-state="active"]');
 
 		if (activeImage) {
-			const previousImage = activeImage.previousElementSibling || imgElements[imgElements.length - 1];
-			const previousIndicator = activeIndicator.previousElementSibling || imageIndicator.lastElementChild;
-			const previousTitle = activeTitle.previousElementSibling || titleList.lastElementChild;
-			const previousDesc = activeDesc.previousElementSibling || descList.lastElementChild;
+			const activeImageIndex = Array.from(imgElements).indexOf(activeImage);
 
-			if (previousImage) {
+			if (activeImageIndex !== -1) {
+				const previousImageIndex = (activeImageIndex - 1 + imgElements.length) % imgElements.length;
+
+				const previousImage = imgElements[previousImageIndex];
+				const previousIndicator = imageIndicator.children[previousImageIndex];
+				const previousTitle = titleList.children[previousImageIndex];
+				const previousDesc = descList.children[previousImageIndex];
+
 				activeImage.setAttribute("data-state", "inactive");
 				previousImage.setAttribute("data-state", "active");
 				activeIndicator.setAttribute("data-state", "inactive");
@@ -129,6 +139,9 @@ function scrollSetup(scroller) {
 				previousTitle.setAttribute("data-state", "active");
 				activeDesc.setAttribute("data-state", "inactive");
 				previousDesc.setAttribute("data-state", "active");
+
+				creditName.innerText = previousImage.getAttribute("data-credit");
+				creditLink.href = previousImage.getAttribute("data-link");
 			}
 		}
 	});
@@ -155,6 +168,9 @@ function scrollSetup(scroller) {
 				activeDesc.setAttribute("data-state", "inactive");
 				nextDesc.setAttribute("data-state", "active");
 			}
+
+			creditName.innerText = imageList.querySelector('[data-state="active"]').getAttribute("data-credit");
+			creditLink.href = imageList.querySelector('[data-state="active"]').getAttribute("data-link");
 		}
 	});
 }
