@@ -659,6 +659,14 @@ section {
 	transition: opacity 0.5s ease-in-out;
 }
 
+.imageList img[data-state="active"] {
+	opacity: 1;
+}
+
+.imageList img[data-state="inactive"] {
+	opacity: 0;
+}
+
 .imageScroller .scrollerDesc {
 	position: relative;
 	background-color: var(--secondary);
