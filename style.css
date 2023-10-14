@@ -545,7 +545,7 @@ section {
 	position: relative;
 	border: 2px solid var(--text);
 	width: 110%;
-	max-height: 90vh;
+	max-height: 90dvh;
 }
 
 @media (min-width: 600px) {
