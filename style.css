@@ -632,8 +632,6 @@ section {
 	position: relative;
 	height: 100%;
 	color: var(--background);
-	margin: 0rem;
-	padding: 0rem;
 	font-size: max(1vmin, 0.8rem);
 }
 
