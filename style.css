@@ -334,14 +334,11 @@ section {
 	width: 100%;
 	height: fit-content;
 	box-sizing: border-box;
-}
 
-#introSection {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	position: relative;
 }
 
 @media (min-width: 872px) {
@@ -500,6 +497,8 @@ section {
 	border-radius: 15px;
 	width: fit-content;
 	margin: 1rem auto;
+	border: 2px solid var(--text);
+	text-align: center;
 }
 
 .textContent a {
@@ -527,14 +526,6 @@ section {
 	font-size: max(5vmin, 1.5rem);
 }
 
-#aboutSection {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	flex-direction: column;
-}
-
 #aboutSection .imageScroller {
 	display: flex;
 	justify-content: center;
@@ -545,6 +536,7 @@ section {
 	position: relative;
 	border: 2px solid var(--text);
 	width: 110%;
+	margin-bottom: 1rem;
 }
 
 @media (min-width: 600px) {
