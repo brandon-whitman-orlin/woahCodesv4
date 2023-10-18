@@ -339,6 +339,7 @@ section {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	padding-bottom: 5rem;
 }
 
 @media (min-width: 872px) {
@@ -959,14 +960,14 @@ section {
 }
 
 #contactSection form input {
-	border: 1px solid #d3d3d3;
+	border: 1px solid var(--primary);
 	padding: 1rem;
-	background: #f9f9f9;
+	background: var(--background);
 	border-radius: 3px;
 	box-shadow: 0 0 4px 1px rgba(0,0,0,.08);
 	width: 100%;
 	flex: 1 1 0px;
-	color: #000;
+	color: text;
 }
 
 #contactSection form input:focus-visible {
@@ -974,27 +975,27 @@ section {
 }
 
 #contactSection form input::placeholder {
-	color: #000;
+	color: var(--text);
 	opacity: 1;
 }
 
 #contactSection form button {
-	border: 1px solid #d3d3d3;
+	border: 1px solid var(--primary);
 	padding: 1rem;
-	background: #f9f9f9;
+	background: var(--background);
 	border-radius: 3px;
 	box-shadow: 0 0 4px 1px rgba(0,0,0,.08);
 	width: 100%;
 	flex: 1 1 0px;
-	color: #000;
+	color: var(--text);
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	font-weight: bold;
 }
 
 #contactSection form button:hover{
-	background: #000;
-	color: #f9f9f9;
+	background: var(--text);
+	color: var(--background);
 	box-shadow: 0 0 4px 1px rgba(255,255,255,.08);
 }
 
