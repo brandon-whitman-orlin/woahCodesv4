@@ -36,16 +36,16 @@
 				</button>
 				<ul>
 					<li>
-						<a href="#introSection">Intro</a>
+						<a href="index.html/#introSection">Intro</a>
 					</li>
 					<li>
-						<a href="#aboutSection">About Me</a>
+						<a href="index.html/#aboutSection">About Me</a>
 					</li>
 					<li>
-						<a href="#projectsSection">My Projects</a>
+						<a href="index.html/#projectsSection">My Projects</a>
 					</li>
 					<li>
-						<a href="#contactSection">Contact Me</a>
+						<a href="index.html/#contactSection">Contact Me</a>
 					</li>
 					<li>
 						<a href="https://drive.google.com/file/d/1ujk10QqVHBrzv3TbkmCJgKsjeWS_Bdu7/view?usp=sharing" target="_blank">My Resume</a>
@@ -240,7 +240,7 @@
 					<h2>Here's how to contact&nbsp;me!</h2>
 					<p>Interested in collaborating on a project? Curious about my work? Want to discuss whatever show I'm currently binging? If you answered "yes" to any of these, here's how you can get in touch:</p>
 				</div>
-				<form name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true" onsubmit="updateButton()">
+				<form name="contact" action="/submitted" method="POST" data-netlify-recaptcha="true" data-netlify="true">
 					<p>
 						<label> Name: <input type="text" name="name" /></label>
 					</p>
@@ -252,16 +252,9 @@
 					</p>
 					<div data-netlify-recaptcha="true"></div>
 					<p>
-						<button type="submit" id="submitButton">Submit</button>
+						<button type="submit">Send</button>
 					</p>
 				</form>
-				
-				<script>
-					function updateButton() {
-						// Change the button text to "Submitted" when the form is submitted
-						document.getElementById('submitButton').textContent = 'Submitted';
-					}
-				</script>
 			</section>
 		</main>
 	</body>
