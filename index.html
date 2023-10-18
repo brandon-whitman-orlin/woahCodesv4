@@ -240,22 +240,26 @@
 					<h2>Here's how to contact&nbsp;me!</h2>
 					<p>Interested in collaborating on a project? Curious about my work? Want to discuss whatever show I'm currently binging? If you answered "yes" to any of these, here's how you can get in touch:</p>
 				</div>
-				<form name="contact" action="/submitted" method="POST" data-netlify-recaptcha="true" data-netlify="true">
+				<form name="contact" action="/submitted" method="POST" data-netlify-recaptcha="true" data-netlify="true" class="contact-form">
 					<h3>Let's get in touch!</h3>
-					<p>
-						<input placeholder="What should I call you?" type="text" name="name" required/>
-					</p>
-					<p>
-						<input placeholder="What is your email?" type="email" name="email" required/>
-					</p>
-					<p>
-						<input placeholder="What can I do for you?" type="text" name="message" required/>
-					</p>
-					<div data-netlify-recaptcha="true"></div>
-					<p>
-						<button type="submit">Send</button>
-					</p>
-				</form>
+					<div class="form-grid">
+					  <p>
+						<input placeholder="What should I call you?" type="text" name="name" required />
+					  </p>
+					  <p>
+						<input placeholder="What is your email?" type="email" name="email" required />
+					  </p>
+					  <p>
+						<input placeholder="What can I do for you?" type="text" name="message" required />
+					  </p>
+					  <p>
+						<div data-netlify-recaptcha="true"></div>
+					  </p>
+					</div>
+					<div class="center-button">
+					  <button type="submit">Send</button>
+					</div>
+				  </form>
 			</section>
 		</main>
 	</body>
