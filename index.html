@@ -242,13 +242,13 @@
 				</div>
 				<form name="contact" action="/submitted" method="POST" data-netlify-recaptcha="true" data-netlify="true">
 					<p>
-						<label> Name: <input type="text" name="name" /></label>
+						<input placeholder="What should I call you?" type="text" name="name" required/>
 					</p>
 					<p>
-						<label> Email: <input type="email" name="email" /></label>
+						<input placeholder="What's your email?" type="email" name="email" required/>
 					</p>
 					<p>
-						<label> Message: <textarea name="message"></textarea></label>
+						<input placeholder="What can I do for you?" type="text" name="message" required/>
 					</p>
 					<div data-netlify-recaptcha="true"></div>
 					<p>
