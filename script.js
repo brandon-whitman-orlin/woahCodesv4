@@ -174,19 +174,3 @@ function scrollSetup(scroller) {
 		}
 	});
 }
-
-clearStyles();
-function clearStyles() {
-	setTimeout(function() {
-	  var elementsToModify = document.querySelectorAll('.rc-anchor-light.rc-anchor-normal, .rc-anchor-light.rc-anchor-compact');
-	  for (var i = 0; i < elementsToModify.length; i++) {
-		elementsToModify[i].style.borderRadius = '0px';
-		elementsToModify[i].style.width = '100%';
-		elementsToModify[i].style.boxShadow = 'none';
-		elementsToModify[i].style.border = 'none';
-		elementsToModify[i].style.backgroundColor = 'transparent';
-		console.log("Element Found");
-	  }
-	  console.log("Done");
-	}, 5000); // 1000 milliseconds = 1 second
-}
