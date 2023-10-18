@@ -998,3 +998,92 @@ section {
 #contactSection form button:focus-visible {
 	outline: 3px solid var(--selected);
 }
+
+footer {
+	position: relative;
+    width: 100vw;
+    background-color: var(--primary);
+    padding: 0.25rem;
+    display: flex;
+    justify-content: space-evenly;
+	align-items: center;
+    left: -2rem;
+    transform: translateY(1rem);
+	z-index: 3;
+	flex-wrap: wrap-reverse;
+}
+
+footer p {
+	margin: 0;
+	font-size: smaller;
+}
+
+footer .contactContent .quickContacts {
+	position: relative;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+footer .contactContent .quickContacts a {
+	position: relative;
+	border-radius: 5px;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin: 0.5rem;
+	border: 2px solid var(--text);
+	overflow: hidden;
+}
+
+footer .contactContent .quickContacts a:nth-child(1) {
+	background-color: rgb(26, 107, 196);
+}
+
+footer .contactContent .quickContacts a:nth-child(2) {
+	background-color: rgb(119, 141, 219);
+}
+
+footer .contactContent .quickContacts a:nth-child(3) {
+	background-color: rgb(255, 65, 48);
+}
+
+footer .contactContent .quickContacts a {
+	position: relative;
+	background-color: transparent;
+	display: block;
+}
+
+footer .contactContent .quickContacts .resumeButton {
+	width: fit-content;
+	padding: 0.25rem;
+	color: var(--text);
+	background-color: var(--primary);
+	border: 2px solid var(--text);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+}
+
+footer .contactContent .quickContacts a svg {
+	position: relative;
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	transform: scale(0.7);
+}
+
+footer .contactContent .quickContacts a svg path {
+	fill: rgb(255, 255, 255);
+}
+
+footer .contactContent .quickContacts a:hover {
+	transform: scale(1.1);
+}
+
+footer .contactContent .quickContacts a:focus-visible {
+	transform: scale(1.1);
+	outline: 2px solid var(--selected);
+	outline-offset: 2px;
+}
