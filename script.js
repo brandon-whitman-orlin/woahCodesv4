@@ -185,5 +185,5 @@ window.addEventListener('load', function() {
 		elementsToModify[i].style.border = 'none';
 		elementsToModify[i].style.backgroundColor = 'transparent';
 	  }
-	}, 1000); // 1000 milliseconds = 1 second
+	}, 5000); // 1000 milliseconds = 1 second
   });
