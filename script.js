@@ -175,7 +175,8 @@ function scrollSetup(scroller) {
 	});
 }
 
-window.addEventListener('load', function() {
+clearStyles();
+function clearStyles() {
 	setTimeout(function() {
 	  var elementsToModify = document.querySelectorAll('.rc-anchor-light.rc-anchor-normal, .rc-anchor-light.rc-anchor-compact');
 	  for (var i = 0; i < elementsToModify.length; i++) {
@@ -188,4 +189,4 @@ window.addEventListener('load', function() {
 	  }
 	  console.log("Done");
 	}, 5000); // 1000 milliseconds = 1 second
-  });
+}
