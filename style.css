@@ -948,7 +948,6 @@ section {
 	align-items: center;
 	flex-direction: column;
 	gap: 1rem;
-	width: 100%;
 }
 
 #contactSection form p {
