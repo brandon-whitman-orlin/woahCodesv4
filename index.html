@@ -240,20 +240,27 @@
 					<h2>Here's how to contact&nbsp;me!</h2>
 					<p>Interested in collaborating on a project? Curious about my work? Want to discuss whatever show I'm currently binging? If you answered "yes" to any of these, here's how you can get in touch:</p>
 				</div>
-				<form id="contact" action="" method="post" data-netlify="true">
-					<fieldset>
-						<input placeholder="What should we call you?" type="text" required>
-					</fieldset>
-					<fieldset>
-						<input placeholder="What's your email?" type="email" required>
-					</fieldset>
-					<fieldset>
-						<textarea placeholder="What are you looking for?" required></textarea>
-					</fieldset>
-					<fieldset>
-						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-					</fieldset>
-				</form>
+				<form
+  name="contact"
+  method="POST"
+  data-netlify-recaptcha="true"
+  data-netlify="true"
+>
+  <p>
+    <label>
+      Email: <input type="text" name="name" />
+    </label>
+  </p>
+  <p>
+    <label>
+      Message: <textarea name="message"></textarea>
+    </label>
+  </p>
+  <div data-netlify-recaptcha="true"></div>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 			</section>
 		</main>
 	</body>
