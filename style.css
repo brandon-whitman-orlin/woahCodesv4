@@ -938,10 +938,10 @@ section {
 }
 
 
-.rc-anchor-light.rc-anchor-normal, .rc-anchor-light.rc-anchor-compact {
+/* .rc-anchor-light.rc-anchor-normal, .rc-anchor-light.rc-anchor-compact {
 	border-radius: 0px !important;
     width: 100% !important;
     box-shadow: none !important;
     border: none !important;
     background-color: transparent !important;
-}
+} */
