@@ -773,7 +773,7 @@ section {
 
 .scrollerControls button:focus-visible {
 	transform: scale(1.5);
-	outline: 2px solid var(--background);
+	outline: 2px solid var(--selected);
 }
 
 .scrollerControls button:focus-visible svg {
@@ -958,11 +958,16 @@ section {
 #contactSection form input {
 	border: 1px solid #d3d3d3;
 	padding: 1rem;
-	background: #f9f9f9;
+	background: var(--background);
 	border-radius: 3px;
 	box-shadow: 0 0 4px 1px rgba(0,0,0,.08);
 	width: 100%;
 	flex: 1 1 0px;
+	color: var(--text);
+}
+
+#contactSection form input:focus-visible {
+	outline: 3px solid var(--selected);
 }
 
 #contactSection form input::placeholder {
@@ -973,9 +978,23 @@ section {
 #contactSection form button {
 	border: 1px solid #d3d3d3;
 	padding: 1rem;
-	background: #f9f9f9;
+	background: var(--background);
 	border-radius: 3px;
 	box-shadow: 0 0 4px 1px rgba(0,0,0,.08);
 	width: 100%;
-	color: #000;
+	flex: 1 1 0px;
+	color: var(--text);
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#contactSection form button:hover{
+	background: var(--text);
+	color: var(--background);
+	box-shadow: 0 0 4px 1px rgba(255,255,255,.08);
+}
+
+#contactSection form button:focus-visible {
+	outline: 3px solid var(--selected);
 }
