@@ -184,6 +184,8 @@ window.addEventListener('load', function() {
 		elementsToModify[i].style.boxShadow = 'none';
 		elementsToModify[i].style.border = 'none';
 		elementsToModify[i].style.backgroundColor = 'transparent';
+		console.log("Element Found");
 	  }
+	  console.log("Done");
 	}, 5000); // 1000 milliseconds = 1 second
   });
