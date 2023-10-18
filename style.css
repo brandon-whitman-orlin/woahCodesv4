@@ -958,12 +958,12 @@ section {
 #contactSection form input {
 	border: 1px solid #d3d3d3;
 	padding: 1rem;
-	background: var(--background);
+	background: #f9f9f9;
 	border-radius: 3px;
 	box-shadow: 0 0 4px 1px rgba(0,0,0,.08);
 	width: 100%;
 	flex: 1 1 0px;
-	color: var(--text);
+	color: #000;
 }
 
 #contactSection form input:focus-visible {
@@ -978,20 +978,20 @@ section {
 #contactSection form button {
 	border: 1px solid #d3d3d3;
 	padding: 1rem;
-	background: var(--background);
+	background: #f9f9f9;
 	border-radius: 3px;
 	box-shadow: 0 0 4px 1px rgba(0,0,0,.08);
 	width: 100%;
 	flex: 1 1 0px;
-	color: var(--text);
+	color: #000;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	font-weight: bold;
 }
 
 #contactSection form button:hover{
-	background: var(--text);
-	color: var(--background);
+	background: #000;
+	color: #f9f9f9;
 	box-shadow: 0 0 4px 1px rgba(255,255,255,.08);
 }
 
