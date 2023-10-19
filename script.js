@@ -174,3 +174,22 @@ function scrollSetup(scroller) {
 		}
 	});
 }
+
+function loadHandler() {
+	const loadingScreen = document.getElementById("loadingScreen");
+	if (loadingScreen) {
+		loadingScreen.style.visibility = "visible";
+		document.documentElement.style.overflow = "hidden";
+	}
+
+	window.addEventListener('load', function() {
+		setTimeout(function() {
+			loadingScreen.style.visibility = "hidden";
+			document.documentElement.style.overflow = "auto";
+		}, 1000);
+	});
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+	loadHandler();
+});
