@@ -183,10 +183,8 @@ function loadHandler() {
 	}
 
 	window.addEventListener('load', function() {
-		setTimeout(function() {
-			loadingScreen.style.visibility = "hidden";
-			document.documentElement.style.overflow = "auto";
-		}, 1000);
+		loadingScreen.style.visibility = "hidden";
+		document.documentElement.style.overflow = "auto";
 	});
 }
 
