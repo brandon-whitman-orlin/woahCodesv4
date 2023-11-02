@@ -853,6 +853,12 @@ section {
 	outline-offset: -1px;
 }
 
+#projectsSection .projectDisplay .project:focus-visible {
+	border: none;
+	outline: 4px solid var(--selected);
+	outline-offset: 4px;
+}
+
 .projectDisplay .project img {
 	position: relative;
 	width: 100%;
@@ -877,6 +883,10 @@ section {
 }
 
 .projectDisplay .project:hover .projectHoverOverlay {
+	transform: scale(1) rotate(0deg);
+}
+
+.projectDisplay .project:focus-visible .projectHoverOverlay {
 	transform: scale(1) rotate(0deg);
 }
 
@@ -906,6 +916,10 @@ section {
 }
 
 .projectDisplay .project:hover .projectHoverText {
+	transform: scale(1) rotate(0deg);
+}
+
+.projectDisplay .project:focus-visible .projectHoverText {
 	transform: scale(1) rotate(0deg);
 }
 
