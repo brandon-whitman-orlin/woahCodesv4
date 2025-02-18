@@ -1,0 +1,30 @@
+.home {
+    width: 100%;
+    height: fit-content;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    color: var(--text);
+    align-content: space-between; 
+    justify-content: flex-start;
+    position: relative;
+    gap: 5rem;
+}
+
+.main {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--background);
+    height: fit-content;
+    clip:auto;
+}
+
+/* @media screen and (max-width: 900px) {
+
+} */

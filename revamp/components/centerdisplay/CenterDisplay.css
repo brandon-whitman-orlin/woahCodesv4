@@ -1,0 +1,79 @@
+@property --paintProgress {
+	syntax: '<percentage>';
+	initial-value: 0%;
+	inherits: false;
+}
+
+@keyframes paint {
+	0% {
+		--paintProgress: 0%;
+        opacity: 0;
+	}
+
+    40% {
+		--paintProgress: 0%;
+        opacity: 1;
+	}
+
+	100% {
+		--paintProgress: 100%
+	}
+}
+
+@property --brushProgress {
+	syntax: '<percentage>';
+	initial-value: 150%;
+	inherits: false;
+}
+
+@keyframes brush {
+	0% {
+		--brushProgress: -200%
+	}
+
+	98% {
+		--brushProgress: 150%;
+		opacity: 1;
+	}
+
+	99% {
+		opacity: 0;
+	}
+
+    100% {
+		display: none;
+	}
+}
+
+.center-display {
+	--rotation: 5deg;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: fit-content;
+	height: 15rem;
+	gap: 5rem;
+	background-image:
+		linear-gradient(to right,
+			var(--accent),
+			var(--accent) var(--paintProgress),
+			transparent var(--paintProgress),
+			transparent 100%);
+	width: 80%;
+	transform: rotate(var(--rotation));
+	transform-origin: left;
+	max-width: 100%;
+	position: relative;
+	animation: 1s paint linear forwards;
+}
+
+.paintbrush {
+	width: 30rem;
+	height: 30rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateX(var(--brushProgress)) translateY(0.1rem);
+	position: absolute;
+	animation: 1.3s brush linear forwards;
+}
