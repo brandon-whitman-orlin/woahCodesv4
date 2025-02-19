@@ -10,6 +10,7 @@
     justify-content: flex-start;
     position: relative;
     gap: 5rem;
+    overflow-x: hidden;
 }
 
 .main {
@@ -21,8 +22,6 @@
     align-items: center;
     gap: 1rem;
     background-color: var(--background);
-    height: fit-content;
-    clip:auto;
 }
 
 /* @media screen and (max-width: 900px) {

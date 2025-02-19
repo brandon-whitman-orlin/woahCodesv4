@@ -1,12 +1,14 @@
 import React from "react";
 import "./CenterDisplay.css";
 
-import { ReactComponent as PaintbrushIcon } from "../../assets/icons/paintbrush-painted.svg";
 
 function CenterDisplay({ children }) {
   return (
     <div className="center-display">
-      <PaintbrushIcon className="paintbrush" />
+      <div className="unrotate">
+        <h1>Hi There</h1>
+        <h2>My name is Brandon</h2>
+      </div>
       {children}
     </div>
   );

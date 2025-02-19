@@ -45,7 +45,7 @@
 	justify-content: flex-end;
 	left: -2.75rem;
 	top: 1rem;
-	transition: left 1s ease-in-out, background-color 0.3s ease-in-out, width 1s ease-in-out;
+	transition: left 1s linear, background-color 0.3s ease-in-out, width 1s ease-in-out;
 	background-color: transparent;
 	padding: 1rem;
 	z-index: 5;
@@ -143,5 +143,11 @@
 	.header-content,
 	.header-additional {
 		font-size: var(--extra-small);
+	}
+}
+
+@media (max-width: 299px) {
+	.header-content a:first-child {
+		padding-left: 0;
 	}
 }
