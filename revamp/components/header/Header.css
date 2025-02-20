@@ -3,14 +3,12 @@
 	align-items: center;
 	padding: 1rem 2rem;
 	background-color: transparent;
-	border-top: 1rem solid var(--accent);
 	height: fit-content;
 
 	width: 100%;
-	position: sticky;
-	top: 0;
 	z-index: 3;
 	flex-wrap: wrap;
+	position: fixed;
 }
 
 .header-content {
@@ -89,7 +87,7 @@
 
 .header .blur {
 	position: absolute;
-	background: rgba(251, 73, 58, 0.2);
+	background: rgba(5, 97, 245, 0.4);
 	backdrop-filter: blur(2px);
 	width: 100vw;
 	height: 100vh;

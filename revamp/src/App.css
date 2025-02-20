@@ -24,23 +24,36 @@
 
 /* Default dark theme */
 [data-theme="dark"] {
-  --text: #ebf3ff;
-  --background: #00040a;
+  --text: #ffffff;
+  --background: #000000;
   --primary: #0561f5;
   --secondary: #910353;
   --accent: #c31404;
-  --active: #ffffff;
 }
 
 /* Light theme */
 [data-theme="light"] {
-  --text: #000814;
-  --background: #f5f9ff;
+  --text: #000000;
+  --background: #ffffff;
   --primary: #0b66fa;
   --secondary: #fc6ebe;
   --accent: #fb493a;
-  --active: #000000;
 }
+
+::selection {
+	background-color: var(--accent);
+}
+
+/* Apply invert() only when theme is light */
+[data-theme="light"] .hero video {
+  filter: invert();
+}
+
+/* Remove filter when theme is dark */
+[data-theme="dark"] .hero video {
+  filter: none;
+}
+
 
 h1 {
   font-size: var(--extra-extra-extra-extra-large);
@@ -136,7 +149,7 @@ a,
 button,
 svg {
   --fillColor: var(--background);
-  --mixedColor: color-mix(in hwb, var(--active) 50%, var(--fillColor) 50%);
+  --mixedColor: color-mix(in hwb, var(--text) 50%, var(--fillColor) 50%);
   font-size: var(--p);
   border: transparent;
   outline: 2px solid transparent;
@@ -144,7 +157,7 @@ svg {
   transition: all 0.3s ease-in-out;
 
   text-decoration: none;
-  background-color: var(--fillColor);
+  background-color: transparent;
   color: var(--text);
 }
 
@@ -201,7 +214,7 @@ ol {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--accent);
+  background-color: var(--primary);
   border-radius: var(--border-radius);
   cursor: pointer;
 }
@@ -209,6 +222,6 @@ ol {
 @supports not selector(::-webkit-scrollbar) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--accent) rgba(0, 0, 0, 0.5);
+    scrollbar-color: var(--primary) rgba(0, 0, 0, 0.5);
   }
 }
