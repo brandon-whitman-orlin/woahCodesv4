@@ -24,6 +24,54 @@
     background-color: var(--background);
 }
 
-/* @media screen and (max-width: 900px) {
+@media screen and (max-width: 349px) {
+    .home h1 {
+        font-size: var(--extra-extra-extra-large);
+    }
 
-} */
+    .home h2 {
+        font-size: var(--extra-extra-large);
+    }
+
+    .home h3 {
+        font-size: var(--extra-large);
+    }
+
+    .home h4 {
+        font-size: var(--large);
+    }
+
+    .home h5 {
+        font-size: var(--small);
+    }
+
+    .home small {
+        font-size: var(--extra-small);
+    }
+}
+
+@media screen and (max-width: 299px) {
+    .home h1 {
+        font-size: var(--extra-extra-large);
+    }
+
+    .home h2 {
+        font-size: var(--extra-large);
+    }
+
+    .home h3 {
+        font-size: var(--large);
+    }
+
+    .home h4 {
+        font-size: var(--small);
+    }
+
+    .home h5 {
+        font-size: var(--extra-small);
+    }
+
+    .home small {
+        font-size: var(--extra-small);
+    }
+}

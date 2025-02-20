@@ -1,0 +1,42 @@
+/* Ensures text elements appear in order */
+.revealing-container .revealing-text {
+    opacity: 0;
+    animation: revealText 0.8s ease forwards;
+  }
+  
+  @keyframes revealText {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Letter-by-letter animation */
+  .revealing-text span {
+    opacity: 0;
+    transform: translateY(10px);
+    display: inline-block;
+    animation: revealLetter 0.5s ease forwards;
+  }
+  
+  @keyframes revealLetter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Preserve spaces properly */
+  .revealing-text .space {
+    display: inline-block;
+    width: 0.3em;
+  }
+  

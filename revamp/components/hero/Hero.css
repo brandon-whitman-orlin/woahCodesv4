@@ -4,8 +4,16 @@
     height: 100svh;
     top: 0;
     overflow: hidden;
-    box-shadow: 0px 1rem 0px 0px var(--text);
-    margin-bottom: 1rem;
+}
+
+.hero::after {
+    content: '';
+    box-shadow: inset 0px -50px 50px 0px var(--background);
+    position: absolute;
+    bottom: 0;
+    width: 110%;
+    height: 10rem;
+    transform: translateX(-5%);
 }
 
 .hero video {
@@ -18,4 +26,19 @@
     transition: transform 1s ease-in-out; /* Transition the transform property */
     transform: translate(var(--translate-x, 0), var(--translate-y, 0)) scale(2, 2);
     will-change: transform;
+}
+
+.hero .important {
+    font-weight: 900;
+    color: var(--text);
+    -webkit-text-stroke: 1px var(--primary);
+}
+
+[data-theme="light"] .hero .important {
+    color: var(--primary);
+    -webkit-text-stroke: 1px var(--text);
+}
+
+.center-display .hero-text h1, .center-display .hero-text h2 {
+	font-weight: 900;
 }

@@ -18,7 +18,3 @@
 	flex-direction: column;
 	text-align: center;
 }
-
-.center-display .hero-text h1, .center-display .hero-text h2 {
-	font-weight: 900;
-}
