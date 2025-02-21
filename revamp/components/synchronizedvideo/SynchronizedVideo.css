@@ -3,11 +3,6 @@
     cursor: url('/assets/icons/dot.svg') 16 16, auto;
     position: relative;
 }
-
-[data-theme="dark"] .media-item-wrapper {
-    cursor: url('/assets/icons/dot-inverted.svg') 16 16, auto;
-    position: relative;
-}
   
   /* Grayscale to Color Video Transition */
   .video.color {
@@ -24,7 +19,7 @@
     position: absolute;
     width: 160px; /* Adjust for border thickness */
     height: 160px;
-    border: 2px solid var(--text); /* Solid color border */
+    border: 2px solid black; /* Solid color border */
     border-radius: 50%;
     pointer-events: none;
     top: var(--mouse-y, 50%);
