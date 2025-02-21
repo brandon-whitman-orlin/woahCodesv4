@@ -1,3 +1,4 @@
+/* Page Section Layout */
 .page-section {
     display: flex;
     flex-direction: column;
@@ -6,44 +7,41 @@
     gap: 1rem;
     justify-content: center;
     align-items: center;
-}
-
-.page-section .section-title {
+    overflow: hidden;
+  }
+  
+  /* Section Title */
+  .page-section .section-title {
     width: 100%;
     text-align: center;
-}
-
-.page-section .section-content {
+  }
+  
+  /* Section Content */
+  .page-section .section-content {
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 73ch;
     gap: 1rem;
-}
-
-.page-section .media-item {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    object-fit: cover;
-}
-
-/* === 1 Media Layout (Media on the Right) === */
-.section-layout.one-media {
+  }
+  
+  /* 1 Media Layout (Media on the Right) */
+  .section-layout.one-media {
     display: flex;
     align-items: center;
     gap: 1rem;
-}
-
-/* === 2 Media Layout (Media on Either Side) === */
-.section-layout.two-media {
+  }
+  
+  /* 2 Media Layout (Media on Either Side) */
+  .section-layout.two-media {
     display: flex;
     align-items: center;
     gap: 1rem;
     flex-direction: column;
-}
-
-/* === 3+ Media Layout (Media Below) === */
-.media-gallery {
+  }
+  
+  /* 3+ Media Layout (Media Below) */
+  .media-gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -56,14 +54,43 @@
     margin-bottom: 1rem;
     min-width: 25rem;
     background-color: transparent;
+    display: grid;
+    place-items: center;
+    position: relative;
   }
   
-
-  @media screen and (max-width: 499px) {
-    .media-gallery .media-wrapper {
-        flex: 1 1 calc(33.333% - 1rem);
-        margin-bottom: 1rem;
-        min-width: 10rem;
-        background-color: transparent;
-      }
-}
+  .media-gallery .media-wrapper p {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Links and Hover Effects */
+  .media-gallery .media-wrapper a {
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    border-radius: var(--border-radius) !important;
+    background-color: transparent !important;
+    color: var(--text);
+    outline: none !important;
+  }
+  
+  .media-gallery .media-wrapper a:hover video,
+  .media-gallery .media-wrapper a:focus-visible video {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+  }
+  
+  /* Media Item */
+  .media-gallery .media-wrapper .media-item {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    object-fit: cover;
+    position: relative;
+    border: 2px solid var(--text);
+  }
+  
+  /* Grayscale Filter for Videos */
+  .video.grayscale {
+    filter: grayscale(100%);
+  }
+  

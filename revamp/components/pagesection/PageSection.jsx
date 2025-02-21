@@ -1,6 +1,8 @@
 import React from "react";
 import "./PageSection.css";
 
+import SynchronizedVideo from "../../components/synchronizedvideo/SynchronizedVideo";
+
 const PageSection = ({
   name,
   images = [],
@@ -10,10 +12,6 @@ const PageSection = ({
   links = [],
   children,
 }) => {
-  // Helper function to determine if media is a video
-  const isVideo = (media) =>
-    typeof media === "string" && media.endsWith(".mp4");
-
   return (
     <section className="page-section">
       <h2 className="section-title">{name}</h2>
@@ -26,16 +24,8 @@ const PageSection = ({
         >
           {/* First media (either image or video) */}
           {images.length + videos.length === 2 &&
-            (isVideo(videos[0]) ? (
-              <video
-                src={videos[0]}
-                className="section-video media-item"
-                autoPlay
-                muted
-                loop
-                playsInline
-                aria-hidden="true"
-              />
+            (videos[0] ? (
+              <SynchronizedVideo src={videos[0]} className="media-item" />
             ) : (
               <img
                 src={images[0]}
@@ -46,16 +36,8 @@ const PageSection = ({
           <div className="section-content">{children}</div>
           {/* Last media (either image or video) */}
           {images.length + videos.length >= 1 &&
-            (isVideo(videos[videos.length - 1]) ? (
-              <video
-                src={videos[videos.length - 1]}
-                className="section-video media-item"
-                autoPlay
-                muted
-                loop
-                playsInline
-                aria-hidden="true"
-              />
+            (videos[videos.length - 1] ? (
+              <SynchronizedVideo src={videos[videos.length - 1]} className="media-item" />
             ) : (
               <img
                 src={images[images.length - 1]}
@@ -71,53 +53,29 @@ const PageSection = ({
             {/* Map through videos */}
             {videos.map((video, index) => (
               <div key={index} className="media-wrapper">
-                <h3>{titles[index] || "Default Title"}</h3>
-                <p>{descriptions[index] || "Default description"}</p>
-                {links[index] ? (
-                  <a href={links[index]} target="_blank" rel="noopener noreferrer">
-                    <video
-                      src={video}
-                      className="section-video media-item"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      aria-hidden="true"
-                    />
-                  </a>
-                ) : (
-                  <video
-                    src={video}
-                    className="section-video media-item"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    aria-hidden="true"
-                  />
-                )}
+                <a href={links[index] || "#"} target="_blank" rel="noopener noreferrer">
+                  <h3>{titles[index] || "Default Title"}</h3>
+                  <p>{descriptions[index] || "Default description"}</p>
+                  <SynchronizedVideo src={video} className="media-item" />
+                </a>
               </div>
             ))}
             {/* Map through images */}
             {images.map((image, index) => (
               <div key={index} className="media-wrapper">
-                <h3>{titles[index + videos.length] || "Default Title"}</h3>
-                <p>{descriptions[index + videos.length] || "Default description"}</p>
-                {links[index + videos.length] ? (
-                  <a href={links[index + videos.length]} target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={image}
-                      alt={`${name} media ${index + 1}`}
-                      className="section-image media-item"
-                    />
-                  </a>
-                ) : (
+                <a
+                  href={links[index + videos.length] || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h3>{titles[index + videos.length] || "Default Title"}</h3>
+                  <p>{descriptions[index + videos.length] || "Default description"}</p>
                   <img
                     src={image}
                     alt={`${name} media ${index + 1}`}
                     className="section-image media-item"
                   />
-                )}
+                </a>
               </div>
             ))}
           </div>

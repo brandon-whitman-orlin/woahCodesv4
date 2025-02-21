@@ -1,0 +1,46 @@
+/* Cursor for Hovering Over Video Items */
+.media-item-wrapper {
+    cursor: url('/assets/icons/dot.svg') 16 16, auto;
+    position: relative;
+}
+
+[data-theme="dark"] .media-item-wrapper {
+    cursor: url('/assets/icons/dot-inverted.svg') 16 16, auto;
+    position: relative;
+}
+  
+  /* Grayscale to Color Video Transition */
+  .video.color {
+    position: absolute !important;
+    bottom: 0;
+    clip-path: circle(0px at var(--mouse-x, 50%) var(--mouse-y, 50%));
+    transition: clip-path 0.1s ease-out;
+    pointer-events: none;
+  }
+  
+  /* Border Effect */
+  .media-item-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 160px; /* Adjust for border thickness */
+    height: 160px;
+    border: 2px solid var(--text); /* Solid color border */
+    border-radius: 50%;
+    pointer-events: none;
+    top: var(--mouse-y, 50%);
+    left: var(--mouse-x, 50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: top 0.1s ease-out, left 0.1s ease-out, opacity 0.1s ease-out; /* Same easing as video */
+    z-index: 10;
+  }
+  
+  .media-item-wrapper:hover::after {
+    opacity: 1;
+  }
+  
+  /* When Hovering Over Video, Reveal Color and Border */
+  .media-item-wrapper:hover .video.color {
+    clip-path: circle(80px at var(--mouse-x, 50%) var(--mouse-y, 50%));
+  }
+  
