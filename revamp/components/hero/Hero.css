@@ -42,3 +42,15 @@
 .center-display .hero-text h1, .center-display .hero-text h2 {
 	font-weight: 900;
 }
+
+@media screen and (max-width: 499px) {
+    .hero .important {
+        font-weight: 900;
+        color: var(--primary);
+        -webkit-text-stroke: transparent;
+    }
+
+    [data-theme="light"] .hero .important {
+        -webkit-text-stroke: transparent;
+    }
+}

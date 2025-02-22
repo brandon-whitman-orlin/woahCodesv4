@@ -1,96 +1,202 @@
 /* Page Section Layout */
 .page-section {
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    width: fit-content;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  width: fit-content;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Section Title */
+.page-section .section-title {
+  width: 100%;
+  text-align: center;
+}
+
+/* Section Content */
+.page-section .section-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 73ch;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 1 Media Layout (Media on the Right) */
+.section-layout.one-media {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* 2 Media Layout (Media on Either Side) */
+.section-layout.two-media {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+/* 3+ Media Layout (Media Below) */
+.media-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  max-width: 80%;
+}
+
+.media-gallery .media-wrapper {
+  flex: 1 1 calc(33.333% - 1rem);
+  margin-bottom: 1rem;
+  min-width: 25rem;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Media Wrapper Image & Video Style */
+.media-gallery .media-wrapper img,
+.media-gallery .media-wrapper video {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  object-fit: cover;
+  height: auto;
+  border: 2px solid var(--text);
+  width: 100%; /* Ensure media fills container */
+  height: 100%; /* Ensure media fills container */
+  object-fit: cover; /* Ensures aspect ratio is maintained */
+  aspect-ratio: 16 / 9; /* Optional: enforce specific aspect ratio */
+}
+
+/* Media Text */
+.media-gallery .media-wrapper p {
+  margin-bottom: 0.5rem;
+}
+
+/* Links and Hover Effects */
+.media-gallery .media-wrapper a {
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+  border-radius: var(--border-radius) !important;
+  background-color: transparent !important;
+  color: var(--text);
+  outline: none !important;
+}
+
+.media-gallery .media-wrapper a:hover video,
+.media-gallery .media-wrapper a:focus-visible video,
+.media-gallery .media-wrapper a:hover img,
+.media-gallery .media-wrapper a:focus-visible img {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Media Item */
+.media-gallery .media-wrapper .media-item {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  object-fit: cover;
+  border: 2px solid var(--text);
+}
+
+/* Grayscale Filter */
+.media-gallery .media-wrapper .grayscale {
+  filter: grayscale(100%);
+}
+
+/* Slide-in animations */
+.media-gallery .media-wrapper {
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  opacity: 0;
+}
+
+.page-section .media-wrapper.animated:first-of-type {
+  animation-name: slideInLeft;
+}
+.page-section .media-wrapper.animated:nth-child(2) {
+  animation-name: slideInBottom;
+}
+.page-section .media-wrapper.animated:last-of-type {
+  animation-name: slideInRight;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100rem);
   }
-  
-  /* Section Title */
-  .page-section .section-title {
-    width: 100%;
-    text-align: center;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  /* Section Content */
-  .page-section .section-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 73ch;
-    gap: 1rem;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100rem);
   }
-  
-  /* 1 Media Layout (Media on the Right) */
-  .section-layout.one-media {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  /* 2 Media Layout (Media on Either Side) */
-  .section-layout.two-media {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-direction: column;
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100rem);
   }
-  
-  /* 3+ Media Layout (Media Below) */
-  .media-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
-    max-width: 80%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1539px) {
+  .page-section .media-wrapper.animated:first-of-type {
+    animation-name: slideInLeft;
+  }
+  .page-section .media-wrapper.animated:nth-child(2) {
+    animation-name: slideInRight;
+  }
+  .page-section .media-wrapper.animated:last-of-type {
+    animation-name: slideInBottom;
+  }
+}
+
+@media screen and (max-width: 1019px) {
+  .page-section .media-wrapper.animated:first-of-type {
+    animation-name: slideInLeft;
+  }
+  .page-section .media-wrapper.animated:nth-child(2) {
+    animation-name: slideInRight;
+  }
+  .page-section .media-wrapper.animated:last-of-type {
+    animation-name: slideInLeft;
+  }
+}
+
+@media screen and (max-width: 631px) {
   .media-gallery .media-wrapper {
-    flex: 1 1 calc(33.333% - 1rem);
-    margin-bottom: 1rem;
-    min-width: 25rem;
-    background-color: transparent;
-    display: grid;
-    place-items: center;
-    position: relative;
+    min-width: 11rem;
   }
-  
-  .media-gallery .media-wrapper p {
-    margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 424px) {
+  .page-section {
+    max-width: 90%;
   }
-  
-  /* Links and Hover Effects */
-  .media-gallery .media-wrapper a {
-    padding: 0;
-    width: fit-content;
-    height: fit-content;
-    border-radius: var(--border-radius) !important;
-    background-color: transparent !important;
-    color: var(--text);
-    outline: none !important;
-  }
-  
-  .media-gallery .media-wrapper a:hover video,
-  .media-gallery .media-wrapper a:focus-visible video {
-    outline: 3px solid var(--primary);
-    outline-offset: 2px;
-  }
-  
-  /* Media Item */
-  .media-gallery .media-wrapper .media-item {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    object-fit: cover;
-    position: relative;
-    border: 2px solid var(--text);
-  }
-  
-  /* Grayscale Filter for Videos */
-  .video.grayscale {
-    filter: grayscale(100%);
-  }
-  
+}

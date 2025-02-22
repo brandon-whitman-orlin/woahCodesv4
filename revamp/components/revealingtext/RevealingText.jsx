@@ -27,36 +27,27 @@ const RevealingText = ({ children }) => {
     const animateText = (child, index) => {
       return React.Children.map(child.props.children, (subChild, subIndex) => {
         if (typeof subChild === "string") {
-          return subChild.split("").map((char, i) => (
-            <span
-              key={i}
-              className={char === " " ? "space" : ""}
-              style={{
-                animationDelay: `${index * ELEMENT_DELAY + subIndex * 100 + i * LETTER_DELAY}ms`,
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
+          return subChild.split(" ").map((word, wordIndex) => (
+            <span key={wordIndex} className="word">
+              {word.split("").map((char, i) => (
+                <span
+                  key={i}
+                  className="letter"
+                  style={{
+                    animationDelay: `${index * ELEMENT_DELAY + subIndex * 100 + i * LETTER_DELAY}ms`,
+                  }}
+                >
+                  {char}
+                </span>
+              ))}
+              <span className="space"> </span> {/* Keeps spaces from collapsing */}
             </span>
           ));
-        } else if (subChild.type === "span") {
-          return (
-            <span
-              key={subIndex}
-              className={subChild.props.className}
-              style={{
-                opacity: 0,
-                animation: `revealLetter 0.5s ease forwards`,
-                animationDelay: `${index * ELEMENT_DELAY + subIndex * 100}ms`,
-              }}
-            >
-              {subChild.props.children}
-            </span>
-          );
-        } else {
-          return subChild;
         }
+        return subChild;
       });
     };
+    
   
     return (
       <div ref={ref} className={`revealing-container ${visible ? "visible" : ""}`}>

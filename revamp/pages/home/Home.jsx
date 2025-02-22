@@ -5,9 +5,15 @@ import "./Home.css";
 import Header from "../../components/header/Header";
 import Hero from "../../components/hero/Hero";
 import PageSection from "../../components/pagesection/PageSection";
+
 import NabelyVideo from "../../assets/videos/Nabely.mp4";
 import WoahCodesVideo from "../../assets/videos/WoahCodes.mp4";
 import QuadVideo from "../../assets/videos/Quad.mp4";
+
+import pic1 from "../../assets/pictures/pic1.jpg";
+import pic2 from "../../assets/pictures/pic2.jpg";
+import pic3 from "../../assets/pictures/pic3.jpg";
+
 import Footer from "../../components/footer/Footer";
 import Copyright from "../../components/copyright/Copyright";
 import ThemeChange from "../../components/themechange/ThemeChange";

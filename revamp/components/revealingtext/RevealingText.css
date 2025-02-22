@@ -39,4 +39,13 @@
     display: inline-block;
     width: 0.3em;
   }
+
+  .word {
+    display: inline-block;
+    white-space: nowrap;
+  }
   
+  .space {
+    display: inline-block;
+    width: 0.4em;
+  }

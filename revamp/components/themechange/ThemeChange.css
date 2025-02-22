@@ -35,3 +35,10 @@
     transition: transform 0.3s ease-in-out;
     position: absolute;
 }
+
+@media screen and (max-width: 499px) {
+    .theme-toggle-button {
+        width: 2rem;
+        height: 2rem;
+    }
+}
