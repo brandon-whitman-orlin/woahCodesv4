@@ -78,17 +78,17 @@ function Hero({ theme }) {
         Your browser does not support the video tag.
       </video>
       <CenterDisplay
-        children={[
-          <RevealingText>
-          <h1>Hi There</h1>
-          <h2>My name is Brandon</h2>
-          <h4>
-            I'm a <span className="important">Full Stack Developer</span> with a passion for crafting <span className="important">captivating
-            user experiences</span> and <span className="important">solving complex problems</span> through code.
-          </h4>
-          </RevealingText>
-        ]}
-      />
+  children={[
+    <RevealingText key="revealing-text">
+      <h1>Hi There</h1>
+      <h2>My name is Brandon</h2>
+      <h4>
+        I'm a<span className="important">Full Stack Developer</span> with a passion for crafting<span className="important"> captivating
+        user experiences</span> and<span className="important">solving complex problems </span> through code.
+      </h4>
+    </RevealingText>
+  ]}
+/>
     </section>
   );
 }

@@ -14,13 +14,23 @@ const Header = ({ spacing = "Left", content = [], additional = null, small = nul
   const blurRef = useRef(null);
   const additionalRef = useRef(null);
 
-  // Map spacing options to CSS justify-content values
   const spacingMap = {
     Left: "flex-start",
     Right: "flex-end",
     Center: "center",
     Between: "space-between",
   };
+
+  useEffect(() => {
+    const handleLinkClick = (event) => {
+      if (isSmallMenuOpen && event.target.closest(".small-links a")) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("click", handleLinkClick);
+    return () => document.removeEventListener("click", handleLinkClick);
+  }, [isSmallMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +46,7 @@ const Header = ({ spacing = "Left", content = [], additional = null, small = nul
 
   const closeMenu = () => {
     setIsSmallMenuOpen(false);
-    setTimeout(() => setSmallLinksVisible(false), 300); // Hide small links after animation
+    setTimeout(() => setSmallLinksVisible(false), 300);
   };
 
   const toggleMenu = () => {
@@ -49,7 +59,6 @@ const Header = ({ spacing = "Left", content = [], additional = null, small = nul
     }
   };
 
-  // Close menu if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -67,7 +76,6 @@ const Header = ({ spacing = "Left", content = [], additional = null, small = nul
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isSmallMenuOpen]);
 
-  // Close menu when focus moves outside OR to an <a> inside .header-additional
   useEffect(() => {
     const handleFocusChange = (event) => {
       if (!isSmallMenuOpen) return;
@@ -75,7 +83,6 @@ const Header = ({ spacing = "Left", content = [], additional = null, small = nul
       setTimeout(() => {
         const activeElement = document.activeElement;
 
-        // Check if focus is outside the menu & blur
         const isOutside =
           activeElement &&
           menuRef.current &&
@@ -83,7 +90,6 @@ const Header = ({ spacing = "Left", content = [], additional = null, small = nul
           blurRef.current &&
           !blurRef.current.contains(activeElement);
 
-        // Check if focus is on an <a> inside .header-additional
         const isAdditionalLink =
           activeElement &&
           additionalRef.current &&
@@ -93,7 +99,7 @@ const Header = ({ spacing = "Left", content = [], additional = null, small = nul
         if (isOutside || isAdditionalLink) {
           closeMenu();
         }
-      }, 0); // Delay to allow focus update
+      }, 0);
     };
 
     document.addEventListener("focusin", handleFocusChange);
@@ -108,28 +114,32 @@ const Header = ({ spacing = "Left", content = [], additional = null, small = nul
     >
       {spacing === "Between" ? (
         <>
-          <div className="header-content">{content}</div>
+          <div className="header-content">
+            {Array.isArray(content)
+              ? content.map((item, index) => <React.Fragment key={index}>{item}</React.Fragment>)
+              : content}
+          </div>
           {additional && <div ref={additionalRef} className="header-additional">{additional}</div>}
         </>
       ) : (
-        content
+        Array.isArray(content)
+          ? content.map((item, index) => <React.Fragment key={index}>{item}</React.Fragment>)
+          : content
       )}
       {small && (
         <>
           <div ref={blurRef} className={`blur ${isSmallMenuOpen ? "active" : ""}`} onClick={closeMenu}></div>
           <div ref={menuRef} className="nav-menu-screen" data-open={isSmallMenuOpen ? "true" : "false"}>
-            <button
-              className="nav-toggle-button"
-              onClick={toggleMenu}
-              aria-expanded={isSmallMenuOpen}
-            >
+            <button className="nav-toggle-button" onClick={toggleMenu} aria-expanded={isSmallMenuOpen}>
               {isSmallMenuOpen ? <CloseIcon className="nav-icon" /> : <OpenIcon className="nav-icon" />}
             </button>
             <div
               className="small-links"
               style={{ display: smallLinksVisible ? "flex" : "none", transition: "display 0.3s" }}
             >
-              {small}
+              {Array.isArray(small)
+                ? small.map((item, index) => <React.Fragment key={index}>{item}</React.Fragment>)
+                : small}
             </div>
           </div>
         </>

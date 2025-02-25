@@ -6,7 +6,7 @@
 	height: fit-content;
 
 	width: 100%;
-	z-index: 3;
+	z-index: 30;
 	flex-wrap: wrap;
 	position: fixed;
 	transition: background-color 0.3s ease-in-out;
@@ -52,7 +52,7 @@
 	transition: left 1s linear, background-color 0.3s ease-in-out, width 1s ease-in-out;
 	background-color: transparent;
 	padding: 1rem;
-	z-index: 5;
+	z-index: 500;
 	background-color: var(--background);
 	border-bottom-right-radius: 1rem;
 	display: none;
@@ -111,6 +111,7 @@
 	pointer-events: none;
 	transition: opacity 0.3s ease-in-out;
 	backdrop-filter: blur(2px);
+	z-index: 499;
 }
 
 .blur.active {
@@ -123,7 +124,7 @@
 	text-decoration: underline;
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 1250px) {
 	.header-content {
 		margin-left: 2.75rem;
 	}
