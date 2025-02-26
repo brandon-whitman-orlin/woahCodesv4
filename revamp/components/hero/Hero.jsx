@@ -83,8 +83,7 @@ function Hero({ theme }) {
       <h1>Hi There</h1>
       <h2>My name is Brandon</h2>
       <h4>
-        I'm a<span className="important">Full Stack Developer</span> with a passion for crafting<span className="important"> captivating
-        user experiences</span> and<span className="important">solving complex problems </span> through code.
+        I'm a Full Stack Developer with a passion for crafting captivating user experiences and solving complex problems through code.
       </h4>
     </RevealingText>
   ]}

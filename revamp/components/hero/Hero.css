@@ -14,6 +14,7 @@
     width: 110%;
     height: 10rem;
     transform: translateX(-5%);
+    pointer-events: none;
 }
 
 .hero video {

@@ -59,7 +59,11 @@
   opacity: 1;
 }
 
-/* Hover State: Reveal Color Layer and Border */
 .media-item-wrapper:hover .color {
   clip-path: circle(80px at var(--mouse-x, 50%) var(--mouse-y, 50%));
+}
+
+.media-wrapper:hover {
+  overflow: visible;
+  z-index: 9;
 }
