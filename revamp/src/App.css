@@ -29,6 +29,7 @@
   --primary: #0561f5;
   --secondary: #910353;
   --accent: #c31404;
+  --darkAccent: #1D0301;
 }
 
 /* Light theme */
@@ -38,6 +39,7 @@
   --primary: #0b66fa;
   --secondary: #fc6ebe;
   --accent: #fb493a;
+  --darkAccent: #FFE4E2;
 }
 
 ::selection {
@@ -53,7 +55,6 @@
 [data-theme="dark"] .hero video {
   filter: none;
 }
-
 
 h1 {
   font-size: var(--extra-extra-extra-extra-large);

@@ -8,6 +8,7 @@
   align-items: center;
   overflow: visible !important;
   flex-wrap: wrap;
+  max-width: 90%;
 }
 
 .page-section::before {
@@ -52,12 +53,17 @@
 /* Page Section Layout */
 .page-section .text-content {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
-  justify-content: center;
-  align-items: center;
+  align-items: stretch;
   z-index: 2;
   overflow: hidden;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  height: fit-content;
+}
+
+.page-section .text-content:has(.text-content) {
   max-width: min(73ch, 90%);
 }
 
@@ -593,11 +599,5 @@
     100% {
       transform: rotate(0deg) translateY(-20%);
     }
-  }
-}
-
-@media screen and (max-width: 424px) {
-  .page-section {
-    max-width: 90%;
   }
 }

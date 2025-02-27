@@ -9,6 +9,8 @@ import Footer from "../../components/footer/Footer";
 import Copyright from "../../components/copyright/Copyright";
 import ThemeChange from "../../components/themechange/ThemeChange";
 import ScrollLink from "../../components/scrolllink/ScrollLink";
+import Timeline from "../../components/timeline/Timeline";
+import TimelineInfo from "../../components/timelineinfo/TimelineInfo";
 
 import NabelyVideo from "../../assets/videos/Nabely.mp4";
 import WoahCodesVideo from "../../assets/videos/WoahCodes.mp4";
@@ -56,14 +58,19 @@ function Home() {
             <p>Whether working independently or as part of a team, I maintain the same level of dedication and professionalism. My collaborative nature and strong communication skills make me an effective team player, while my self-motivation and problem-solving abilities allow me to excel in independent roles. This flexibility, combined with my technical expertise and drive for excellence, makes me an invaluable asset to any development project.</p>
           </LineSlide>
         </PageSection>
-        <PageSection  id="experience" school="true" name="Experience" videos={[QuadVideo, NabelyVideo, WoahCodesVideo]} titles={["Quad Consultation", "Nabely App", "woahCodes v1"]} descriptions={["A Web Consulting Startup I Co-Founded", "An Event-Finding App I Worked On", "The First Version Of This Site"]} links={["https://quadconsultation.com", "https://nabely.com", "https://woahcodes.com"]}>
-          <LineSlide>
-            <p>As a Full Stack developer with a strong foundation in Front End design, I leverage my technical expertise across both Web and Mobile development. My diverse portfolio spans artificial intelligence, virtual simulation, game development, and language development, demonstrating my versatility and technical adaptability across different domains.</p>
-            <br/>
-            <p>Driven by an unwavering commitment to excellence, I consistently deliver high-quality solutions that exceed expectations. My perfectionist nature ensures meticulous attention to detail in every line of code I write. To stay at the forefront of technology, I actively explore emerging tools and frameworks, constantly expanding my technical repertoire and bringing fresh perspectives to challenging problems.</p>
-            <br/>
-            <p>Whether working independently or as part of a team, I maintain the same level of dedication and professionalism. My collaborative nature and strong communication skills make me an effective team player, while my self-motivation and problem-solving abilities allow me to excel in independent roles. This flexibility, combined with my technical expertise and drive for excellence, makes me an invaluable asset to any development project.</p>
-          </LineSlide>
+        <PageSection  id="experience" school="true" name="Experience">
+          <Timeline
+            events={{
+              "April 2022": ["ChopShop"],
+              "December 2022": ["Couch Counseling"],
+              "May 2023": ["Param", "Project Grover"],
+              "August 2023": ["Quad Consultation"],
+              "December 2023": ["Nabely"],
+              "February 2024": ["EPI-USE Software Engineer"],
+              "October 2024": ["infoBot v3"],
+            }}
+          />
+          <TimelineInfo/>
         </PageSection>
       </main>
       <Footer
