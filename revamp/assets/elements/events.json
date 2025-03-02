@@ -1,0 +1,25 @@
+{
+    "April 2022": [
+      { "name": "ChopShop", "type": "project", "description": "ChopShop is a mobile application designed to optimize the grocery shopping experience by leveraging graph theory and advanced pathfinding algorithms. Users input their grocery list, and the app instantly generates an optimized route through the store, minimizing time spent and improving efficiency. By systematically mapping store layouts and analyzing item locations, ChopShop ensures users follow the quickest path, streamlining the shopping process and enhancing convenience." }
+    ],
+    "December 2022": [
+      { "name": "Couch Counseling", "type": "project", "description": "Couch Counseling is a web-based application developed for Pennsylvania State University's Human Services Department to enhance the training experience of students pursuing careers in behavioral health. The simulation immerses students in the role of a behavioral health case manager, allowing them to conduct virtual home visits with patients. Complete with video lessons, interactive scenarios, and progressive testing, the app enables users to advance through different levels of proficiency." }
+    ],
+    "May 2023": [
+      { "name": "Param", "type": "project", "description": "PARAM AI is an AI-powered chatbot developed for the Computer Science Department of Pennsylvania  State University to streamline student support and alleviate the workload of academic advisors. By providing instant, reliable information, PARAM AI enables students to quickly access details on course selection, campus locations, professor contact information, and course descriptions. The chatbot enhances the student experience by offering a convenient, accessible tool for navigating academic and campus-related queries with ease." },
+      { "name": "Project Grover", "type": "project", "description": "Sponsored by Lockheed Martin, Project Grover was a capstone initiative which focused on developing a swarm intelligence algorithm for a fleet of autonomous ground-based rovers. The operation utilized a powerful main robot working in coordination with several smaller, agile units. These rovers worked collaboratively to explore a designated area and gather mission-critical data quickly and efficiently, all while ensuring no areas are left undiscovered." }
+    ],
+    "August 2023": [
+      { "name": "Quad Consultation Developer", "type": "employment", "description": "As a Front-End Developer at Quad Consultation, I was responsible for designing and implementing responsive, user-friendly interfaces for custom websites and software applications. Working closely with clients, I translated their vision into intuitive, engaging digital experiences, ensuring seamless interactions across various platforms. Additionally, I contributed to SEO optimization and e-commerce integration, helping businesses enhance their online presence and drive customer engagement." }
+    ],
+    "December 2023": [
+      { "name": "Nabely", "type": "project", "description": "Nabely is a mobile application designed to revitalize the concept of the \"third place\"—a social space where people can gather, connect, and build community outside of home and work. The app fosters local engagement by connecting individuals to nearby venues and events, while simultaneously helping small businesses grow their following and customer base. Nabely strengthens community ties by promoting meaningful interactions and supporting local economies in a seamless, user-friendly environment." }
+    ],
+    "February 2024": [
+      { "name": "EPI-USE Software Engineer", "type": "employment", "description": "As a Software Engineer At EPI-USE, I developed cross-platform mobile apps with Flutter, ensuring responsive, high-performance experiences across devices. I integrated AWS cloud services to boost scalability and performance, while building and maintaining full-stack systems with TypeScript and JavaScript. I also implemented API integrations to streamline functionality and improve data flow between systems." }
+    ],
+    "October 2024": [
+      { "name": "infoBot v3", "type": "product", "description": "InfoBot is a powerful Discord bot designed to simplify server management for community admins. With a range of tools and automation features, InfoBot enables even novice users to efficiently manage large communities with ease. Whether it's organizing members, moderating content, or streamlining daily tasks, InfoBot empowers admins to maintain a smooth and effective server experience, withot having to hire a dedicated moderation/management team." }
+    ]
+  }
+  

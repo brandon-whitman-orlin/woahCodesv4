@@ -5,9 +5,11 @@ const ScrollLink = ({ to, ...props }) => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    // console.log(`ScrollLink clicked: ${to}`); // Debugging
-
-    if (to.startsWith("#")) {
+    // If "to" is "/", reload the page and scroll to the top
+    if (to === "/") {
+      e.preventDefault();
+      window.scrollTo(0, 0); // Scroll to the top of the page
+    } else if (to.startsWith("#")) {
       e.preventDefault();
       const targetId = to.substring(1);
       const element = document.getElementById(targetId);

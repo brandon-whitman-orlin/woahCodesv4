@@ -53,14 +53,15 @@
 /* Page Section Layout */
 .page-section .text-content {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: stretch;
   z-index: 2;
   overflow: hidden;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center ;
   position: relative;
   height: fit-content;
+  flex-wrap: wrap;
 }
 
 .page-section .text-content:has(.text-content) {
