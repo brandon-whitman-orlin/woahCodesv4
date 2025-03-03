@@ -15,7 +15,7 @@ const ScrollLink = ({ to, ...props }) => {
       const element = document.getElementById(targetId);
 
       if (element) {
-        console.log(`Scrolling to: ${targetId}`); // Debugging
+        // console.log(`Scrolling to: ${targetId}`); // Debugging
         element.scrollIntoView({ behavior: "smooth" });
       } else {
         console.warn(`Element with ID '${targetId}' not found.`);

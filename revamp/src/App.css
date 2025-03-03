@@ -27,6 +27,8 @@
   --text: #ffffff;
   --background: #000000;
   --faded: #262626;
+  --fadedTransparent: #5050500d;
+  --fadedLight: #505050;
   --primary: #0561f5;
   --secondary: #910353;
   --accent: #c31404;
@@ -41,6 +43,8 @@
   --text: #000000;
   --background: #ffffff;
   --faded: #D9D9D9;
+  --fadedTransparent: #b3b3b30d;
+  --fadedLight: #b3b3b3;
   --primary: #0b66fa;
   --secondary: #fc6ebe;
   --accent: #fb493a;
@@ -198,6 +202,10 @@ button.cta-button {
   --fillColor: var(--primary);
   background-color: var(--fillColor);
   color: var(--background);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem !important;
+  font-size: var(--medium);
+  font-weight: 700;
 }
 
 ul,

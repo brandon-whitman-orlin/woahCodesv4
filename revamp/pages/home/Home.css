@@ -23,6 +23,27 @@
     background-color: var(--background);
 }
 
+.main::before {
+    content: '';
+    box-shadow: inset 0px -50px 50px 0px var(--background);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 10rem;
+    transform: rotate(180deg);
+    pointer-events: none;
+    /* background-color: red; */
+  }
+  
+  .main::after {
+      content: '';
+      box-shadow: inset 0px -50px 50px 0px var(--background);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 10rem;
+      pointer-events: none;
+  }
 
 [data-theme="light"] .main {
     background-color: #ffffff;

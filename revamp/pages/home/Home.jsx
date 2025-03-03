@@ -10,6 +10,7 @@ import Copyright from "../../components/copyright/Copyright";
 import ThemeChange from "../../components/themechange/ThemeChange";
 import ScrollLink from "../../components/scrolllink/ScrollLink";
 import LineSlide from "../../components/lineslide/LineSlide";
+import ContactForm from "../../components/contactform/ContactForm";
 
 import NabelyVideo from "../../assets/videos/Nabely.mp4";
 import WoahCodesVideo from "../../assets/videos/WoahCodes.mp4";
@@ -20,14 +21,14 @@ import Timeline from "../../components/timeline/Timeline";
 import TimelineEvents from "../../assets/elements/events.json";
 
 function Home() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100); // 200ms delay
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     window.scrollTo(0, 0);
+  //   }, 100); // 200ms delay
   
-    // Cleanup the timer on component unmount
-    return () => clearTimeout(timer);
-  }, []);
+  //   // Cleanup the timer on component unmount
+  //   return () => clearTimeout(timer);
+  // }, []);
   
 
   return (
@@ -44,7 +45,7 @@ function Home() {
           <ScrollLink key="nav-experience" className="nav-large" to="#experience">
             Experience
           </ScrollLink>,
-          <ScrollLink key="nav-blog" className="nav-large" to="/">
+          <ScrollLink key="nav-blog" className="nav-large" to="/blog">
             Blog
           </ScrollLink>,
           <ScrollLink
@@ -57,7 +58,7 @@ function Home() {
           </ScrollLink>,
         ]}
         additional={[
-          <ScrollLink key="nav-contact" className="cta-button" to="/">
+          <ScrollLink key="nav-contact" className="cta-button" to="#contact">
             CONTACT ME
           </ScrollLink>,
         ]}
@@ -69,7 +70,7 @@ function Home() {
             <ScrollLink key="nav-experience-small" className="nav-small" to="#experience">
               Experience
             </ScrollLink>
-            <ScrollLink key="nav-blog-small" className="nav-small" to="/">
+            <ScrollLink key="nav-blog-small" className="nav-small" to="/blog">
               Blog
             </ScrollLink>
             <ScrollLink
@@ -135,6 +136,20 @@ function Home() {
           </LineSlide>
         </PageSection>
         <Timeline id="experience" events={TimelineEvents} />
+        {/* <PageSection
+          id="blog"
+          name="My Blog">
+          <p>When I'm not deep in a project or caught up in a TV binge, I'm sharing everything I've learned about web development! From clever CSS tricks to full component breakdowns, my goal is to make building websites easier and more fun. Whether you're just starting out or leveling up your skills, there's something here for you—dive in and explore!</p>
+          <ScrollLink className="cta-button" to="/blog">
+            VISIT MY BLOG
+          </ScrollLink>
+        </PageSection> */}
+        <PageSection
+          id="contact"
+          name="Let's Chat!">
+          <p>Interested in collaborating on a project? Curious about my work? Here's how you can get in touch:</p>
+          <ContactForm/>
+        </PageSection>
       </main>
       <Footer
         spacing="Center"

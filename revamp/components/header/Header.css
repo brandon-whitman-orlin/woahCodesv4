@@ -162,9 +162,24 @@
 	.header-content,
 	.header-additional {
 		font-size: var(--extra-small);
+		width: 100%;
+	}
+
+	.header-content a {
+		width: 100%;
+		text-align: center;
+		padding: 0;
+	}
+
+	.header-additional a {
+		margin-inline: auto;
 	}
 
 	.header-content a:first-child {
 		padding-left: 0;
+	}
+
+	.header-additional a {
+		padding: 0.25rem 0.5rem !important;
 	}
 }

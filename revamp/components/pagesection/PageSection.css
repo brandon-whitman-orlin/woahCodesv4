@@ -11,27 +11,6 @@
   max-width: 90%;
 }
 
-.page-section::before {
-  content: '';
-  box-shadow: inset 0px -50px 50px 0px var(--background);
-  position: absolute;
-  top: 0;
-  width: 110%;
-  height: 10rem;
-  transform: rotate(180deg);
-  pointer-events: none;
-}
-
-.page-section::after {
-    content: '';
-    box-shadow: inset 0px -50px 50px 0px var(--background);
-    position: absolute;
-    bottom: 0;
-    width: 110%;
-    height: 10rem;
-    pointer-events: none;
-}
-
 /* Section Title */
 .page-section .section-title-wrapper {
   display: flex;
@@ -58,6 +37,7 @@
   z-index: 2;
   overflow: hidden;
   width: 100%;
+  max-width: 73ch;
   justify-content: center ;
   position: relative;
   height: fit-content;

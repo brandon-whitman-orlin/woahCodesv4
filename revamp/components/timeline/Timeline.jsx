@@ -56,38 +56,102 @@ const Timeline = ({ events = {}, ...props }) => {
       const timeline = document.querySelector(".timeline");
       const years = document.querySelectorAll(".timeline-year");
       const dates = document.querySelectorAll(".timeline-date");
+      const eventName = document.querySelector(".event-name");
+      const eventDescription = document.querySelector(".event-description");
+      const eventDate = document.querySelector(".event-date");
     
-      // Get the timeline container's position
+      if (!timeline) return;
+    
       const timelineRect = timeline.getBoundingClientRect();
-      const timelineTop = timelineRect.top; // Top of the .timeline container
+      const timelineTop = timelineRect.top;
     
-      // Get the scroll percentage
       const scrollPercentage = parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue("--scrollPercentage")
+        getComputedStyle(document.documentElement).getPropertyValue(
+          "--scrollPercentage"
+        )
       );
     
-      // Loop through years and dates and check if scroll percentage matches
-      years.forEach((year) => {
-        const rect = year.getBoundingClientRect();
-        const percentage = ((rect.top - timelineTop) / timelineRect.height) * 100;
+      let firstElementPercentage = Infinity;
+      let lastActiveEvent = null;
     
-        if (scrollPercentage >= percentage) {
-          year.classList.add("active");
-        } else {
-          year.classList.remove("active");
+      const updateActiveClass = (elements, isDate = false) => {
+        let activeElement = null;
+        
+        // Get the timeline's bounding rect
+        const timelineRect = document.querySelector(".timeline").getBoundingClientRect();
+        
+        // Check if the screen width is less than 459px for horizontal layout
+        const isHorizontal = window.innerWidth <= 459;
+        
+        elements.forEach((element) => {
+          const rect = element.getBoundingClientRect();
+          let percentage;
+      
+          if (isHorizontal) {
+            // Calculate distance relative to the left side for horizontal layout
+            percentage = ((rect.left - timelineRect.left) / timelineRect.width) * 100;
+          } else {
+            // Calculate distance relative to the top for vertical layout
+            percentage = ((rect.top - timelineRect.top) / timelineRect.height) * 100;
+          }
+      
+          // Update first element percentage for resetting when no active element
+          firstElementPercentage = Math.min(firstElementPercentage, percentage);
+      
+          if (scrollPercentage >= percentage) {
+            element.classList.add("active");
+            if (isDate) activeElement = element;
+          } else {
+            element.classList.remove("active");
+          }
+        });
+      
+        return activeElement;
+      };
+    
+      updateActiveClass(years);
+      const activeDate = updateActiveClass(dates, true);
+    
+      // **Update event details when an active date is found**
+      if (activeDate) {
+        const eventText = activeDate.dataset.eventName || "Unknown Event";
+        const eventDesc =
+          activeDate.dataset.eventDescription || "No description available.";
+        const eventMonth = activeDate.textContent.trim(); // Extracts abbreviated month
+    
+        // Find the closest previous .timeline-year to get the correct year
+        let eventYear = "Year Unknown";
+        for (const yearElement of [...years].reverse()) {
+          if (yearElement.getBoundingClientRect().top < activeDate.getBoundingClientRect().top) {
+            eventYear = yearElement.textContent;
+            break;
+          }
         }
-      });
     
-      dates.forEach((date) => {
-        const rect = date.getBoundingClientRect();
-        const percentage = ((rect.top - timelineTop) / timelineRect.height) * 100;
+        const eventDateText = `${eventMonth} ${eventYear}`;
     
-        if (scrollPercentage >= percentage) {
-          date.classList.add("active");
-        } else {
-          date.classList.remove("active");
-        }
-      });
+        eventName.textContent = eventText;
+        eventDescription.textContent = eventDesc;
+        eventDate.textContent = eventDateText;
+    
+        lastActiveEvent = { eventText, eventDesc, eventDateText };
+      } else if (lastActiveEvent) {
+        eventName.textContent = lastActiveEvent.eventText;
+        eventDescription.textContent = lastActiveEvent.eventDesc;
+        eventDate.textContent = lastActiveEvent.eventDateText;
+      }
+    
+      // **Remove active from all elements if scrollPercentage drops below the first element**
+      if (scrollPercentage < firstElementPercentage) {
+        years.forEach((year) => year.classList.remove("active"));
+        dates.forEach((date) => date.classList.remove("active"));
+    
+        // Reset event details when no active date is left
+        eventName.textContent = "Project Name";
+        eventDescription.textContent = "Project Description";
+        eventDate.textContent = "Event Date";
+        lastActiveEvent = null;
+      }
     };
 
     const observer = new ResizeObserver(updateHeaderHeight);
@@ -134,19 +198,36 @@ const Timeline = ({ events = {}, ...props }) => {
     <div className="timeline-wrapper" {...props}>
       <div className="timeline-components">
         <div className="timeline">
+          <div className="timeline-line"></div>
           {Object.entries(groupedEvents).map(([year, yearEvents], index) => (
             <>
               <div className="timeline-year">{year}</div>
               <div className="timeline-items">
                 {yearEvents.map(([date, eventList], i) =>
                   eventList.map((event, j) => (
-                    <div className="timeline-date">{abbreviateDate(date)}</div>
+                    <div
+                      className="timeline-date"
+                      data-event-name={event.name}
+                      data-event-description={event.description}
+                    >
+                      {abbreviateDate(date)}
+                    </div>
                   ))
                 )}
               </div>
             </>
           ))}
           <div className="timeline-fill"></div>
+        </div>
+        <div className="timeline-information">
+          <h2>Stuff I've Done</h2>
+          <div className="timeline-information-components">
+            <div>
+              <h3 className="event-name">Project Name</h3>
+              <p className="event-date">Event Date</p>
+            </div>
+            <p className="event-description">Project Description</p>
+          </div>
         </div>
       </div>
     </div>
