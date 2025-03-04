@@ -1,0 +1,245 @@
+/*-------------------------*/
+/* DEFAULT STYLING */
+/*-------------------------*/
+:root {
+
+  margin: 0 auto;
+  color-scheme: light dark;
+
+  /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+  --extra-small: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --small: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --medium: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --large: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --extra-large: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --extra-extra-large: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+  --extra-extra-extra-large: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+  --extra-extra-extra-extra-large: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+
+  --padding: 1rem;
+  --border-radius: 0.75rem;
+  --icon-size: 1.5rem;
+}
+
+/* Default dark theme */
+[data-theme="dark"] {
+  --text: #ffffff;
+  --background: #000000;
+  --faded: #262626;
+  --fadedTransparent: #5050500d;
+  --fadedLight: #505050;
+  --primary: #0561f5;
+  --secondary: #910353;
+  --accent: #c31404;
+  --darkAccent: #1D0301;
+  --timelineA: #194452;
+  --timelineB: #116e11;
+  --timelineC: #800f0f;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --text: #000000;
+  --background: #ffffff;
+  --faded: #D9D9D9;
+  --fadedTransparent: #b3b3b30d;
+  --fadedLight: #b3b3b3;
+  --primary: #0b66fa;
+  --secondary: #fc6ebe;
+  --accent: #fb493a;
+  --timelineA: #add8e6;
+  --timelineB: #90ee90;
+  --timelineC: #f08080;
+
+}
+
+::selection {
+	background-color: var(--accent);
+}
+
+/* Apply invert() only when theme is light */
+[data-theme="light"] .hero video {
+  filter: invert();
+}
+
+/* Remove filter when theme is dark */
+[data-theme="dark"] .hero video {
+  filter: none;
+}
+
+h1 {
+  font-size: var(--extra-extra-extra-extra-large);
+}
+
+h2 {
+  font-size: var(--extra-extra-extra-large);
+}
+
+h3 {
+  font-size: var(--extra-extra-large);
+}
+
+h4 {
+  font-size: var(--extra-large);
+}
+
+h5 {
+  font-size: var(--large);
+}
+
+small {
+  font-size: var(--small);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  scroll-padding: 3rem;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+svg path {
+  fill: var(--text, currentColor);
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+  font-size: var(--medium);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+a {
+  border-radius: 100rem !important;
+  padding-inline: 1rem;
+}
+
+a,
+button,
+svg {
+  --fillColor: var(--background);
+  --mixedColor: color-mix(in hwb, var(--text) 50%, var(--fillColor) 50%);
+  font-size: var(--p);
+  border: transparent;
+  outline: 2px solid transparent;
+  outline-offset: -0.5rem;
+  transition: all 0.3s ease-in-out;
+
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--text);
+}
+
+svg {
+  background-color: transparent;
+}
+
+a:hover,
+button:hover,
+a:focus-visible,
+button:focus-visible {
+  cursor: pointer;
+  color: var(--background);
+  background-color: var(--mixedColor) !important;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 0.25rem solid var(--mixedColor);
+  outline-offset: 2px;
+  background-color: var(--mixedColor) !important;
+}
+
+/*  */
+
+a.cta-button,
+button.cta-button {
+  --fillColor: var(--primary);
+  background-color: var(--fillColor);
+  color: var(--background);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem !important;
+  font-size: var(--medium);
+  font-weight: 700;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+#root {
+  min-height: 100svh;
+  width: 100%;
+  background-color: var(--background);
+  isolation: isolate;
+}
+
+.app-container section {
+  overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) rgba(0, 0, 0, 0.5);
+  }
+}
