@@ -21,14 +21,14 @@ import Timeline from "../../components/timeline/Timeline";
 import TimelineEvents from "../../assets/elements/events.json";
 
 function Home() {
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     window.scrollTo(0, 0);
-  //   }, 100); // 200ms delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100); // 200ms delay
   
-  //   // Cleanup the timer on component unmount
-  //   return () => clearTimeout(timer);
-  // }, []);
+    // Cleanup the timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
   
 
   return (

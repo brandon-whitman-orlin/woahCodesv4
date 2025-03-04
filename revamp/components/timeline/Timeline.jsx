@@ -200,23 +200,25 @@ const Timeline = ({ events = {}, ...props }) => {
         <div className="timeline">
           <div className="timeline-line"></div>
           {Object.entries(groupedEvents).map(([year, yearEvents], index) => (
-            <>
-              <div className="timeline-year">{year}</div>
-              <div className="timeline-items">
-                {yearEvents.map(([date, eventList], i) =>
-                  eventList.map((event, j) => (
-                    <div
-                      className="timeline-date"
-                      data-event-name={event.name}
-                      data-event-description={event.description}
-                    >
-                      {abbreviateDate(date)}
-                    </div>
-                  ))
-                )}
-              </div>
-            </>
-          ))}
+  <React.Fragment key={year}> {/* Added key to the entire year block */}
+    <div className="timeline-year">{year}</div>
+    <div className="timeline-items">
+      {yearEvents.map(([date, eventList], i) =>
+        eventList.map((event, j) => (
+          <div
+            key={`${date}-${event.name}`}
+            className="timeline-date"
+            data-event-name={event.name}
+            data-event-description={event.description}
+          >
+            {abbreviateDate(date)}
+          </div>
+        ))
+      )}
+    </div>
+  </React.Fragment>
+))}
+
           <div className="timeline-fill"></div>
         </div>
         <div className="timeline-information">
