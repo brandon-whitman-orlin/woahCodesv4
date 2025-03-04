@@ -1,0 +1,54 @@
+form {
+    background-color: var(--background);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 0.25rem solid var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 70%;
+}
+
+form label {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+form input {
+    border: 1px solid var(--text);
+    padding: 1rem;
+    background: var(--background);
+    border-radius: calc(var(--border-radius) - 0.5rem);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, .08);
+    width: 100%;
+    flex: 1 1 0px;
+    color: var(--text);
+}
+
+form input::placeholder {
+    color: var(--fadedLight);
+}
+
+form input:hover, form input:focus-visible {
+    outline: 3px solid var(--primary);
+}
+
+form button {
+    --fillColor: var(--primary);
+    background-color: var(--fillColor);
+    color: var(--background);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem !important;
+    font-size: var(--medium);
+    font-weight: 700;
+}
+
+@media screen and (max-width: 349px) {
+    form {
+        width: 90%;
+        font-size: var(--extra-small);
+    }
+}
